@@ -1,0 +1,387 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head lang="en">
+		<meta charset="UTF-8" http-equiv="content-type" content="text/html">
+		<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+		<title>注册</title>
+		 <!--<link rel="stylesheet" href="css/public.css" />-->
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<style>
+			html,
+			body {
+				width: 100%;
+				height: 100%;
+				overflow: hidden;
+			background: url("images/login/login@2x.png") no-repeat;
+				background-size: cover;
+				color: rgba(255, 255, 255, 0.8);
+				font-family: '微软雅黑';
+			}
+			
+			.mui-icon-back:before,
+			.mui-icon-left-nav:before {
+				color: rgba(255, 255, 255, 0.8);
+			}
+			
+			.mui-bar-nav {
+				box-shadow: none;
+				background: #358B8A;
+				color: rgba(255, 255, 255, 0.8);
+				border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+			}
+			
+			.zck_box input[type=text],
+			.zck_box input[type=password] {
+				height: 2rem;
+				line-height: 2rem;
+				border-radius: 0.5rem;
+				border: 0;
+				font-size: 0.7rem
+			}
+			
+			.dl_box {
+				width: 85%;
+				height: 11rem;
+				position: absolute;
+				bottom: 13%;
+				left: 8%;
+				
+				
+				
+				
+			}
+			
+			.usd_box,
+			.psd_box,
+			.yzm_box,
+			.zc_box {
+				width: 100%;
+				height: 2.5rem;
+				line-height: 2.5rem;
+				
+				
+			}
+			
+			.usd_box,
+			.psd_box,
+			.yzm_box,
+			.zc_box {
+				/*margin: 0.5rem auto;*/
+				position: relative;
+			}
+			
+			.sj_png {
+				width: 0.5rem;
+				margin-left: 3%;
+			}
+			
+			.sj_png {
+				vertical-align: middle;
+			}
+			
+			.usd,
+			.pwd,
+			.yzm,
+			.btn_dl {
+				height: 2rem;
+				line-height: 2rem;
+				margin-left: 2%;
+				font-size: 0.8rem;
+				text-align: center;
+			}
+			
+			.usd {
+				width: 70% !important;
+				height: 2rem;
+				margin: 0.5rem auto;
+				background: rgba(255, 255, 255, 0.1) !important;
+			}
+			
+			.pwd,
+			.yzm {
+				height: 2rem;
+				margin: 0.5rem auto;
+				background: rgba(255, 255, 255, 0.1) !important;
+			}
+			
+			.usd,
+			.pwd,
+			.yzm {
+				color: #fff;
+				/*position: absolute;*/
+			}
+			
+			.btn_dl {
+				width: 100%;
+				margin: 0.5rem auto !important;
+				font-size: 0.8rem !important;
+				border: 0 !important;
+				background-color: rgba(255, 255, 255, 0.1);
+				color: rgba(255, 255, 255, 0.8) !important;
+				border-radius: 10px !important;
+			}
+			
+			.btn_dl_bg {
+				width: 100%;
+				margin: 0.5rem auto !important;
+				font-size: 0.8rem !important;
+				border: 0 !important;
+				background-color: #35698E;
+				color: rgba(255, 255, 255, 0.8) !important;
+				border-radius: 10px !important;
+			}
+			
+			.yzm_a {
+				right: 0%;
+				top: 0.5rem;
+				text-align: center;
+				font-size: 0.6rem !important;
+				height: 2rem;
+				line-height: 1rem;
+				position: absolute;
+				width: 28%;
+				border: 0 !important;
+				background: rgba(255, 255, 255, 0.1);
+				color: rgba(255, 255, 255, 0.8) !important;
+				border-radius: 10px !important;
+				padding: 0;
+			}
+			
+			.logo_dl2x {
+				width: 26%;
+				margin: 3rem 0 3rem 6rem;
+			}
+			
+			.yzm_a_bg {
+				height: 2rem;
+				line-height: 2rem;
+				position: absolute;
+				width: 28%;
+				border: 0 !important;
+				color: rgba(255, 255, 255, 0.8) !important;
+				border-radius: 10px !important;
+				background: #35698E;
+			}
+			.login_txt {
+				position: absolute;
+				bottom: 8%;
+				left: 27%;
+				font-size: 0.7rem;
+				
+			}
+			
+			.login_txt a {
+				color: rgba(255, 255, 255, 0.5);
+			}
+		</style>
+		<script src="js/base.fontsize.js"></script>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">注册</h1>
+		</header>
+		<!--注册框-->
+
+		<!--logo-->
+		<!--<img class="logo_dl2x" src="images/logo_new.png" alt="logo" />-->
+		<div class="dl_box zck_box">
+
+			<div class="usd_box">
+				<!--<img class="sj_png" src="img/dlzc/sj@2x.png" alt="账号" />-->
+				<input class="usd zc_used" type="text" placeholder="用户名/手机号" />
+				<button type="button" class="yzm_a" href="javascript:;">获取验证码</button>
+			</div>
+			<div class="yzm_box">
+				<!--<img class="sj_png" src="img/dlzc/yzm@2x.png" alt="验证码" />-->
+				<input class="yzm" type="text" placeholder="验证码" />
+			</div>
+			<div class="psd_box">
+				<!--<img class="sj_png" src="img/dlzc/mm@2x.png" alt="密码" />-->
+				<input class="pwd" type="password" placeholder="密码" />
+			</div>
+			<input class="btn_dl btn_zc" type="button" value="注   册" />
+		</div>
+
+		<!--<div class="dialog_info">
+                <p class="dialog_p">
+                    保存成功
+                </p>
+                <input type="button" name="name" id="confirm" value="确定" />
+            </div>-->
+		<div class="login_txt">
+			<a href="###">已有账号 ？&nbsp;&nbsp;&nbsp;&nbsp;直接登录</a>
+		</div>
+		</div>
+
+		<script src="js/global.js" type="text/javascript"></script>
+		<script type="text/javascript" src="js/public.js"></script>
+		<script src="js/mui.min.js"></script>
+		<script src="js/jquery.cookie.js"></script>
+		<script type="text/javascript">
+			mui.init({
+				//监听Android手机的back、menu按键
+				keyEventBind: {
+					backbutton: false, //Boolean(默认true)关闭back按键监听
+					menubutton: false //Boolean(默认true)关闭menu按键监听
+				},
+			})
+		</script>
+		<script>
+			$(function() {
+				/*仿刷新：检测是否存在cookie*/
+				if($.cookie("captcha")) {
+					var count = $.cookie("captcha");
+					var btn = $('.yzm_a');
+					btn.html(count + '秒后再获取').attr('disabled', true).css('cursor', 'not-allowed').css("color", "#f60");
+					var resend = setInterval(function() {
+						count--;
+						if(count > 0) {
+							btn.html(count + '秒后再获取').attr('disabled', true).css('cursor', 'not-allowed').css("color", "#f60");
+							$.cookie("captcha", count, {
+								path: '/',
+								expires: (1 / 86400) * count
+							});
+						} else {
+							clearInterval(resend);
+							btn.html("获取验证码").removeClass('disabled').removeAttr('disabled style');
+						}
+					}, 1000);
+				}
+				/*点击改变按钮状态，ajax发送短信验证的代码*/
+				$('.yzm_a').click(function() {
+					var btn = $(this);
+					var count = 60;
+					var vl = $(".usd").val();
+					var VerifyCodeType = 0;
+					var reg = /^1\d{10}$/;
+					//	alert(vl)
+					if(vl == "" || vl == null) {
+						plus.nativeUI.toast("手机号输入有误");
+					} else if(!(reg.test(vl))) {
+						plus.nativeUI.toast("手机号码有误，请重填");
+						return false;
+					} else {
+						mui.ajax({
+							url: $.xiaodie.host + "/Message/VerifyCode/Get",
+							type: "POST",
+							data: {
+								MemberPhone: vl,
+								VerifyCodeType: 0
+							},
+							success: function(data) {
+								console.log(JSON.stringify(data))
+								if(data.ResultType == 3) {
+									plus.nativeUI.toast("验证码发送成功");
+
+								} else {
+									plus.nativeUI.toast(data.Message);
+								};
+							}
+						});
+						$(".error_zc").html("");
+						var resend = setInterval(function() {
+							count--;
+							if(count > 0) {
+								btn.html(count + "秒后再获取").css("color", "#f60");
+								$.cookie("captcha", count, {
+									path: '/',
+									expires: (1 / 86400) * count
+								});
+							} else {
+								clearInterval(resend);
+								btn.html("获取验证码").removeAttr('disabled style');
+							}
+						}, 1000);
+						btn.attr('disabled', true).css('cursor', 'not-allowed');
+					}
+
+				});
+				//点击注册
+				$('.btn_dl').click(function() {
+					var btn = $(this);
+					var MemberPhone = $(".dl_box .usd").val();
+					var MemberPass = $(".dl_box .pwd").val();
+					var VerifyCode = $(".dl_box .yzm").val();
+					var MobileSystem = 1;
+					var reg = /^1\d{10}$/;
+					if(MemberPhone == "" || MemberPhone == null) {
+						plus.nativeUI.toast("手机号输入有误");
+						return false;
+					} else if(MemberPass == "" || MemberPass == null) {
+						plus.nativeUI.toast("密码输入有误");
+						return false;
+					} else if(VerifyCode == "" || VerifyCode == null) {
+						plus.nativeUI.toast("验证码输入有误");
+						return false;
+					} else if(!(reg.test(MemberPhone))) {
+						plus.nativeUI.toast("手机号码有误，请重填");
+						return false;
+					} else {
+						mui.ajax({
+							url: $.xiaodie.host + "/Members/Member/Register",
+							type: "POST",
+							data: {
+								MemberPhone: MemberPhone,
+								MemberPass: MemberPass,
+								VerifyCode: VerifyCode,
+								MobileSystem: 1
+							},
+							beforeSend: function() {
+								btn.prop("disabled", true);
+							},
+							complete: function() {
+								btn.prop("disabled", false);
+							},
+							success: function(data) {
+								plus.nativeUI.toast("注册成功");
+								if(data.ResultType == 3) {
+									var current = plus.webview.currentWebview();
+									plus.webview.close(current);
+									openWebview("sm_login.html")
+								};
+							}
+						});
+					}
+
+				});
+				//展示对话框
+				function showDialog(msg) {
+					$(".dialog_p").html(msg);
+					$(".mask_bg,.dialog_info").show();
+				}
+			});
+			//  ========== 
+			//  = 登录焦点事件 = 
+			//  ========== 
+			$(document).ready(function() {
+				//				获取焦点
+				$(".usd").focus(function() {
+
+					$(".yzm_a").addClass("yzm_a_bg")
+				});
+				$(".usd").blur(function() {
+					$(".yzm_a").removeClass("yzm_a_bg")
+				});
+				//				注册
+				$(".pwd").focus(function() {
+
+					$(".btn_dl").addClass("btn_dl_bg")
+				});
+				$(".pwd").blur(function() {
+					$(".btn_dl").removeClass("btn_dl_bg")
+				});
+			})
+			$('.login_txt').click(function() {
+				var current = plus.webview.currentWebview();
+					current.close();
+				
+			})
+			
+		</script>
+
+	</body>
+
+</html>

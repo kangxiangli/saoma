@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<meta name="HandheldFriendly" content="true" />
+		<meta name="MobileOptimized" content="320" />
+		<meta name="screen-orientation" content="portrait">
+		<title>二维码</title>
+		
+		<link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
+		<link rel="stylesheet" type="text/css" href="../css/style.css" />
+		<link rel="stylesheet" href="../css/app.css" />
+		<!--barcode_mask的css-->
+		<link rel="stylesheet" href="../css/barcode_mask.css" />
+		<script type="text/javascript" src="../js/global.js"></script>
+		<script type="text/javascript" src="../js/jquery.qrcode.min.js"></script>
+		<script type="text/javascript" src="../js/common.js"></script>
+		<script type="text/javascript" src="../js/mui.js"></script>
+		<!--<script type="text/javascript" src="../js/barcode.js"></script>-->
+		<!--<script type="text/javascript" src="../js/code.js"></script>-->
+		<script src="../js/base.fontsize.js"></script>
+		<script>
+			
+			function open() {
+				var barcodes = plus.webview.getWebviewById("template/barcode.html");
+				if( barcodes == null ){
+					barcodes = plus.webview.getWebviewById("../template/barcode.html");
+				}
+				barcodes.evalJS("startRecognize()");
+				
+			};
+			mui.plusReady(function() {
+				open();
+//				alert("open");
+			})
+		</script>
+	</head>
+	<body onload="img=document.getElementById('bimg');">
+		<header class="mui-bar mui-bar-nav sm_head_nav" >
+			<img class="sm_s_photo kq_tx" src="../images/wode/tx.png" alt="" />
+			<img src="../images/M@.2x_03.png" alt="" />
+			<img class="fbt" src="../images/xiangce@2x.png" alt="从相框选取照片"   />		
+		</header>
+			<div class="mui-content">
+				<div class="sm_barcode">
+					
+					<img class="wmbg" src="../images/background@2x.png" alt="" />
+					<img class="sm_code_img" src="../images/QR-code-case@2x.png" alt="" /></div>
+					
+					<div class="sm_code_txt">将二维码放入框内，自动识别</div>
+			</div>
+
+		</div>
+
+	</body>
+
+</html>
+<script type="text/javascript" src="wode/js/setting.js"></script>
+<script type="text/javascript">
+
+mui.init({
+	//监听Android手机的back、menu按键
+	keyEventBind: {
+		backbutton: false,  //Boolean(默认true)关闭back按键监听
+		menubutton: false   //Boolean(默认true)关闭menu按键监听
+	},
+})
+
+$(".fbt").click(function(){
+	var ws=plus.webview.currentWebview().opener();
+	ws.evalJS("scanPicture()")
+
+})
+
+</script>

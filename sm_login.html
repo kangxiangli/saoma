@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html>
+
+	<head lang="en">
+		<meta charset="UTF-8" http-equiv="content-type" content="text/html">
+		<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+		<!-- 禁止添加小广告-->
+		<meta http-equiv="Cache-Control" content="no-siteapp" />
+		<!-- 禁止数字识自动别为电话号码 -->
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta charset='utf-8'>
+		<meta name="viewport" content="width=640, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<!--		<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0" />-->
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/apple-touch-icon.png">
+		<link rel="apple-touch-icon-precomposed" sizes="180x180" href="images/apple-touch-icon.png">
+
+		<!-- iPhone SPLASHSCREEN-->
+		<link rel="apple-touch-startup-image" href="images/320r460.png" media="(device-width: 320px)" />
+		<!-- iPhone (Retina) SPLASHSCREEN-->
+		<link rel="apple-touch-startup-image" href="images/640r920.png" media="(device-width: 320px) and (-webkit-device-pixel-ratio: 2)" />
+		<!-- iOS 8 iPhone 6 (portrait) -->
+		<link rel="apple-touch-startup-image" sizes="750x1294" href="images/750r1294.png" media="(device-width: 375px) and (device-height: 667px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)">
+		<!-- iOS 8 iPhone 6 Plus (portrait) -->
+		<link rel="apple-touch-startup-image" sizes="1242x2148" href="images/1242r2148.png" media="(device-width: 414px) and (device-height: 736px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3)">
+		<!-- iOS 8 iPhone 5  (portrait) -->
+		<link rel="apple-touch-startup-image" sizes="640x1096" href="images/640r1096.png" media="(device-width: 640px) and (device-height: 1136px)" />
+		<!-- iOS ipad (portrait) -->
+		<link rel="apple-touch-startup-image" sizes="768x1004" href="images/768r1004.png" media="screen and (min-device-width : 481px) and (max-device-width : 1024px) and (orientation : portrait)" />
+		<!-- iPad (Retina, portrait) SPLASHSCREEN-->
+		<link rel="apple-touch-startup-image" sizes="1536x2008" href="images/1536r2008.png" media="(device-width: 1536px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" />
+
+		<title>小蝶扫码</title>
+
+		<link href="css/public.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" href="css/style.css" />
+		<style>
+			body {
+				width: 100%;
+				height: 100%;
+				overflow: hidden;
+			
+				background-image: url("images/login/login@2x.png") ;
+				/*background-size: cover;*/
+				background-repeat:no-repeat;
+				background-attachment:fixed;
+				background-position:top center;
+				color: rgba(255, 255, 255, 0.8);
+				font-family: '华文细黑';
+			}
+			/*温馨提示*/
+			
+			.bg_dialog {
+				width: 100%;
+				height: 100%;
+				background-color: rgba(0, 0, 0, 0.5);
+				left: 0;
+				top: 0;
+				position: absolute;
+				z-index: 10;
+				display: none;
+			}
+			
+			.alog,
+			.prompt_box,
+			.dk_dialog,
+			.apply_dialogm,
+			.txtMsg {
+				position: absolute;
+				display: none;
+				background-color: #fff;
+				text-align: center;
+				width: 60%;
+				top: 50%;
+				left: 50%;
+				margin-left: -30%;
+				z-index: 100;
+				border-radius: 5px;
+			}
+			
+			.alog,
+			.dk_dialog,
+			.apply_dialog,
+			.txtMsg {
+				height: 4.5rem;
+				margin-top: -2.25rem;
+			}
+			
+			.prompt_box .warn,
+			.warn_p {
+				font-size: 0.7rem;
+				height: 1rem;
+				line-height: 1.5rem;
+			}
+			
+			.prompt_box .inform_txt,
+			.dk_inf_p,
+			.card_sure,
+			.txtP {
+				font-size: 0.75rem;
+				height: 2rem;
+				line-height: 2.3rem;
+			}
+			
+			.dl_body .prompt_box {
+				height: 6rem;
+			}
+			
+			.dl_body .prompt_box .warn {
+				font-size: 0.8rem;
+				height: 2rem;
+				line-height: 2rem;
+			}
+			
+			.dl_body .prompt_box .inform_txt {
+				font-size: 0.8rem;
+				height: 2rem;
+				line-height: 2rem;
+				color: #000;
+			}
+			
+			.dl_body .prompt_box .prompt {
+				font-size: 0.8rem;
+				height: 2rem;
+				line-height: 2rem;
+			}
+			
+			.dl_body .alog {
+				height: 5rem;
+				width: 10rem;
+			}
+			
+			.dl_body .aler_p {
+				height: 3rem;
+				line-height: 3rem;
+				font-size: 0.8rem;
+				color: black;
+			}
+			
+			.dl_body .yes,
+			.dl_body .no {
+				height: 2rem;
+				width: 5rem;
+				line-height: 2rem;
+				font-size: 0.8rem;
+			}
+			
+			.aler_p {
+				border-bottom: 1px;
+				border-bottom-style: solid;
+				border-bottom-color: rgba(221, 221, 221, 1)
+			}
+			
+			.yes,
+			.no {
+				font-family: '华文细黑';
+				background-color: transparent;
+				color: #0F80FB;
+				font-weight: 700
+			}
+			
+			.yes {
+				float: left;
+				border-right: 1px !important;
+				border-right-style: solid !important;
+				border-right-color: rgba(221, 221, 221, 1) !important
+			}
+			
+			.no {}
+			
+			.prompt_box .warn,
+			.warn_p,
+			.prompt_box .inform_txt,
+			.dk_inf_p,
+			.card_sure,
+			.txtMsg {
+				color: #50524B;
+			}
+			
+			.login_mid {
+				width: 100%;
+				height: 34%;
+				bottom: 4rem;
+				position: absolute;
+				/*z-index: -1;*/
+			}
+		</style>
+	</head>
+	<script src="js/base.fontsize.js"></script>
+
+	<body class="">
+		<!--<div class="loading_load">
+			<div class="load_box">
+				<div class="img_gif"></div>
+				<p class="load_txt">正在加载，请稍后...</p>
+			</div>
+		</div>-->
+		<div class="loading" id="loading">
+			<div class="progress" id="progress">0%</div>
+			<div class="loader">
+				<img class="loading_img" src="images/loding.png" alt="" />
+				<img src="images/loding_03.png" alt="" />
+				<!--<span></span>-->
+			</div>
+		</div>
+		<div class="dl_body">
+			<div class="login_mid">
+				<!--logo-->
+				<!--<img class="logo_dl2x" src="images/logo_new.png" alt="logo" />-->
+				<!--登陆框-->
+				<form id="forms_box" enctype="multipart/form-data">
+					<div class="dl_box">
+						<div class="usd_box">
+							<input class="usd" type="text" placeholder="手机号码" />
+						</div>
+						<div class="psd_box">
+							<input class="pwd" type="password" placeholder="密码" />
+						</div>
+					</div>
+					<input class="btn_dl" type="button" id="login" value="登    录" style="cursor:pointer" />
+				</form>
+				<ul class="zc_mm">
+					<li class="forgotPass">
+						<a href="javascript:void(0)">忘记密码</a>
+					</li>
+					<li id="reg" onclick="sm_zc();">
+						<a href="javascript:void(0)">注册用户</a>
+					</li>
+				</ul>
+			</div>
+			<!--弹出确定按钮-->
+			<div class="bg_dialog"></div>
+			<div class="alog">
+				<p class="aler_p">亲，需要记住账号吗？</p>
+				<input class="yes" type="button" value="确定" />
+				<input class="no" type="button" value="取消" />
+			</div>
+			<div class="prompt_box">
+				<div class="warn">温馨提示</div>
+				<div class="inform_txt"></div>
+				<input type="button" class="prompt" value="确定" />
+			</div>
+		</div>
+
+		</script>
+		<script src="js/global.js"></script>
+		<script src="js/loading.js"></script>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript" src="js/public.js"></script>
+		<script type="text/javascript">
+			mui.plusReady(function() {
+				mui.init({
+					//监听Android手机的back、menu按键
+					keyEventBind: {
+						backbutton: false, //Boolean(默认true)关闭back按键监听
+						menubutton: false //Boolean(默认true)关闭menu按键监听
+					},
+				})
+
+				var bdw = $(window).width();
+				var wh = $(window).height();
+
+				$('body').width(bdw).height(wh);
+
+				$(".prompt").click(function() {
+					$(".bg_dialog,.prompt_box").hide();
+				});
+
+				var MemberId = localStorage.MemberId;
+				if(MemberId != undefined && MemberId != "" && MemberId != null) {
+					location.href = "index.html";
+					//					plus.webview.show("index.html")
+					//					openWebview("index.html")
+				}
+				$(".bg_dialog").height($(window).height());
+				$("#login").click(function() {
+					loginToSM();
+				});
+
+				$(".usd").val(localStorage.uerd);
+				$(".pwd").val(localStorage.pasd);
+				//  ========== 
+				//  = 监听键盘 enter事件 = 
+				//  ========== 
+				document.onkeydown = function(event) {
+					var e = event || window.event || arguments.callee.caller.arguments[0];
+					if(e && e.keyCode == 13) { // enter 键
+						loginToSM();
+					}
+				};
+				//  ========== 
+				//  = 登录 = 
+				//  ========== 
+
+				function loginToSM() {
+					var used = $("#forms_box .usd").val();
+					var pasd = $("#forms_box .pwd").val();
+					if((used == '') || (used == null)) {
+						$(".bg_dialog,.prompt_box").show();
+						$(".prompt_box .inform_txt").html("用户名不能为空");
+						$(".prompt").click(function() {
+							$(".bg_dialog,.prompt_box").hide();
+						});
+						return false;
+					} else if((pasd == '') || (pasd == null)) {
+
+						$(".bg_dialog,.prompt_box").show();
+						$(".prompt_box .inform_txt").html("密码不能为空");
+						$(".prompt").click(function() {
+							$(".bg_dialog,.prompt_box").hide();
+						});
+						return false;
+					} else {
+
+						mui.ajax({
+							url: $.xiaodie.host + "/Members/Member/Login",
+							type: "POST",
+							data: {
+								MemberPhone: used,
+								MemberPass: pasd
+							},
+							success: function(data) {
+//								console.log("登录成功"+JSON.stringify(data))
+								//							plus.runtime.appid ../../sm_login.html
+								var indexV = plus.webview.getWebviewById(plus.runtime.appid);
+								//							var current = plus.webview.currentWebview();
+								var current = plus.webview.getWebviewById("../../sm_login.html");
+//								console.log("current   " + current.id)
+								if(data.ResultType == 3) {
+									$(".bg_dialog,.alog").show();
+									var MemberId = data.Data.MemberId;
+									var U_Num = data.Data.U_Num;
+									var UserPhoto = data.Data.UserPhoto;
+									localStorage.uerd = used;
+									localStorage.MemberId = MemberId;
+									localStorage.U_Num = U_Num;
+									localStorage.UserPhoto = UserPhoto;
+									$(".yes").click(function() {
+										if(window.localStorage) {
+											localStorage.pasd = pasd;
+											$(".bg_dialog,.alog").hide(100);
+											indexV.reload(true);
+											plus.webview.close(current);
+
+											//location.href = "sm_login.html";
+										} else {
+											plus.nativeUI.toast("不支持本地存储");
+											$(".bg_dialog,.alog").hide(100);
+											//	location.href = "index.html";
+
+										}
+									});
+									$(".no").click(function() {
+
+										//	localStorage.removeItem("uerd");
+										localStorage.removeItem("pasd");
+										$(".bg_dialog,.alog").hide(100);
+										indexV.reload(true);
+										plus.webview.close(current)
+
+									});
+
+								} else {
+
+									$(".bg_dialog,.prompt_box").show();
+									$(".prompt_box .inform_txt").html(data.Message);
+									$(".prompt").click(function() {
+										$(".bg_dialog,.prompt_box").hide();
+									});
+									return false;
+								}
+							},
+							error: function(a) {
+								//							console.log(JSON.stringify(a))
+								plus.nativeUI.toast("登录失败");
+							}
+						});
+					}
+				}
+
+			});
+
+			var sm_zc;
+			$(document).ready(function() {
+				//  ========== 
+				//  = 	注册账户 = 
+				//  ========== 
+				sm_zc = function() {
+
+					openWebview("reg.html");
+				}
+				//  ========== 
+				//  = 登录焦点事件 = 
+				//  ========== 
+				$(".usd,.pwd").focus(function() {
+
+					$(".btn_dl").addClass("btn_dl_bg")
+				});
+				$(".usd,.pwd").blur(function() {
+					$(".btn_dl").removeClass("btn_dl_bg")
+				});
+
+				//忘记密码
+				$('.forgotPass').click(function() {
+					plus.nativeUI.toast("暂不开放");
+
+				})
+			})
+		</script>
+
+	</body>
+
+</html>

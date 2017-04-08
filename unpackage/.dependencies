@@ -1,0 +1,85 @@
+{
+  "template/update.html": {
+    "href": "template/update.html",
+    "resources": [],
+    "priority": 0
+  },
+  "template/pay.html": {
+    "href": "template/pay.html",
+    "resources": [],
+    "priority": 1
+  },
+  "template/shijian.html": {
+    "href": "template/shijian.html",
+    "resources": [],
+    "priority": 2
+  },
+  "template/imageView.html": {
+    "href": "template/imageView.html",
+    "resources": [],
+    "priority": 3
+  },
+  "template/readbarQrcode.html": {
+    "href": "template/readbarQrcode.html",
+    "priority": 4
+  },
+  "template/share.html": {
+    "href": "template/share.html",
+    "resources": [],
+    "priority": 5
+  },
+  "template/qrcode.html": {
+    "href": "template/qrcode.html",
+    "resources": [],
+    "priority": 6
+  },
+  "template/login.html": {
+    "href": "template/login.html",
+    "resources": [],
+    "priority": 7
+  },
+  "template/readQrcode.html": {
+    "href": "template/readQrcode.html",
+    "resources": [],
+    "priority": 8
+  },
+  "template/contact.html": {
+    "href": "template/contact.html",
+    "resources": [],
+    "refer": [],
+    "priority": 0
+  },
+  "template/detail.html": {
+    "href": "template/detail.html",
+    "resources": [],
+    "priority": 1
+  },
+  "template/chat.html": {
+    "href": "template/chat.html",
+    "resources": [],
+    "refer": [],
+    "priority": 1
+  },
+  "template/about.html": {
+    "href": "template/about.html",
+    "resources": [],
+    "refer": [],
+    "priority": 2
+  },
+  "template/guide.html": {
+    "href": "template/guide.html",
+    "resources": [],
+    "priority": 3
+  },
+  "template/setting.html": {
+    "href": "template/setting.html",
+    "resources": [],
+    "priority": 4
+  },
+  "index.html": {
+    "href": "index.html",
+    "resources": [],
+    "refer": [],
+    "priority": 0
+  }
+}

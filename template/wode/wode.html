@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>小蝶扫码/我的</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../../css/mui.min.css">
+		<link rel="stylesheet" href="../../css/app.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/public.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/cropper.min.css">
+			<script src="../../js/base.fontsize.js"></script>
+
+		<style>
+			html,
+			body {
+				font-size: 0.7rem;
+			}
+			
+			.mui-bar {
+				background: rgba(255, 255, 255, 0.001);
+				border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+			}
+			
+			.mui-title {
+				color: rgba(255, 255, 255, 0.8) !important;
+			}
+			
+			.mui-bar-nav {
+				color: rgba(255, 255, 255, 0.8) !important;
+				-webkit-box-shadow: none;
+				box-shadow: none;
+			}
+			
+			.sm_save {
+				position: absolute;
+				right: 1rem;
+				top: 0.5rem;
+			}
+			
+			.sm_s_photo {
+				border: 2px solid rgba(255, 255, 255, 0.3);
+				margin-top: 0.2rem;
+				width: 1.6rem;
+				height: 1.6rem;
+			}
+			
+			.title {
+				margin: 20px 15px 10px;
+				color: #6d6d72;
+				font-size: 15px;
+			}
+			
+			.userInfo {
+				/*height: 2.5rem;*/
+				width: 100%;
+				background: red;
+			}
+			
+			.userImage {
+				width: 100%;
+				border-radius: 30px;
+			}
+		
+			.appName {
+				height: 2rem;
+				line-height: 0rem;
+				position: absolute;
+				margin-left: 1rem;
+			}
+			
+			.mui-content {
+				color: rgba(255, 255, 255, 0.8) !important;
+				background-color: rgba(255, 255, 255, 0.001);
+			}
+			
+			.mui-table-view {
+				background-color: rgba(255, 255, 255, 0.001);
+			}
+			
+			.sm_name {
+				display: block;
+				
+				color: rgba(255, 255, 255, 0.8) !important;
+				text-align: center;
+			}
+			
+			.mui-bar-nav {
+				background: #358B8A;
+			}
+			
+			.sm_photo {
+				position: relative;
+				padding: 10px 0;
+				margin: 0 auto;
+				height: 7.5rem;
+				width: 3.5rem;
+			}
+			
+			.mui-table-view-cell:after {
+				left: 0px !important;
+				background-color: rgba(255, 255, 255, 0.3) !important;
+			}
+			
+			.mui-table-view:before {
+				background-color: rgba(255, 255, 255, 0.3) !important;
+			}
+			
+			.sm_jiantou_1,
+			.sm_jiantou_2,
+			.sm_jiantou_3,
+			.sm_jiantou_4 {
+				position: absolute;
+				right: 1rem;
+				margin-top: 0.2rem;
+				height: 0.5rem;
+			}
+			
+			.mui-table-view-cell>a:not(.mui-btn) {
+				display: inline-block !important;
+				float: right !important;
+				margin: -11px 1px !important;
+			}
+			
+			.mui-table-view-cell {
+			/*	border-top: 1px solid rgba(255, 255, 255, .1);*/
+				padding: 11px 20px !important;
+			}
+			/*性别*/
+			
+			#sex_div {
+				width: 100%;
+				height: 2.5rem;
+				line-height: 2.5rem;
+			}
+			
+			#sex_div .sex {
+				height: 2rem;
+				line-height: 2rem;
+				display: inline-block;
+			}
+			
+			#sex_div>img:nth-child(2) {
+				display: inline-block;
+				height: 100%;
+				vertical-align: middle;
+				margin-left: 2rem;
+			}
+			
+			#sex_div>img:nth-child(3) {
+				display: inline-block;
+				height: 100%;
+				margin-left: 2rem;
+				vertical-align: middle;
+			}
+			/*所属店铺*/
+			
+			.sm_dianpu_jiantou {
+				position: absolute;
+				right: 8.8rem;
+				top: 0.8rem;
+				width: 0.3rem;
+				height: 0.5rem;
+				-webkit-transform: rotate(90deg);
+				/* Safari 和 Chrome */
+				transform: rotate(90deg);
+				-ms-transform: rotate(90deg);
+				/* IE 9 */
+				-moz-transform: rotate(90deg);
+				/* Firefox */
+				-o-transform: rotate(90deg);
+				/* Opera */
+			}
+			
+			.sm_leave_login {
+				width: 100%;
+				
+			}
+			/*退出账号*/
+			
+			.sm_leave_login span {
+				width: 85%;
+				display: block;
+				margin: 1.5rem auto;
+				text-align: center;
+				height: 2rem;
+				line-height: 2rem;
+				color: rgba(255, 255, 255, 0.8) !important;
+				background-color: rgba(0, 0, 0, 0.1);
+			}
+			
+			.mui-content {
+				overflow: scroll;
+			}
+				/*.dearName{
+			
+				border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+			}*/
+			.mui-table-view:after {
+				background-color: rgba(255, 255, 255, 0.3);
+			}
+			
+			.mui-title>img {
+				vertical-align: middle;
+				height: 1rem;
+				line-height: 1rem;
+			}
+			
+			.box {
+				width: 100px;
+				height: 100px;
+				background: red;
+			}
+			
+			.sexOp {
+				opacity: 0.5;
+			}
+			/*头像*/
+			
+			.sm_content_s .hendOnly {
+				width: 4rem;
+				height: 4rem;
+				border-radius: 100%;
+				margin: 1rem auto;
+				border: 3px solid rgba(255, 255, 255, 0.2);
+			}
+			
+			.sm_content_s .module {
+				text-align: center;
+				font-size: 0.75rem;
+				color: rgba(255, 255, 255, 0.7);
+				position: relative;
+			}
+			
+			#file_box {
+				width: 4rem;
+				height: 4rem;
+				overflow: hidden;
+				z-index: 6;
+				opacity: 1;
+				margin-top: 2rem;
+				margin-left: 1rem;
+			}
+			
+			#showResult,
+			#file_box {
+				display: inline-block;
+			}
+			
+			.info_only div #image {
+				width: 4rem;
+				height: 4rem;
+				line-height: 5rem;
+				font-size: 0.72rem;
+				position: absolute;
+				z-index: 1;
+				top: 3rem;
+				left: 6rem;
+				opacity: 0;
+			}
+			
+			#changeAvatar {
+				position: absolute;
+				top: 2.99rem;
+				left: 6rem;
+				border: 3px solid rgba(0, 0, 0, 0);
+				width: 4rem;
+				height: 4rem;
+				border-radius: 100%;
+				overflow: hidden;
+			}
+			
+			#changeAvatar img {
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 100%;
+			}
+			
+			#showEdit {
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				z-index: 9;
+				display: block;
+			}
+			
+			.mui-title img {
+				height: 1.5rem;
+				line-height: 1.5rem;
+			}
+			
+			#cancleBtn {
+				color: #43A278;
+				width: 2.5rem;
+				height: 2.5rem;
+				line-height: 2rem;
+				border-radius: 50%;
+			/*	background: none;*/
+				border: none;
+			}
+			
+			#confirmBtn {
+				color: #FFF;
+				/*background-color: none;*/
+				width: 2.5rem;
+				height: 2.5rem;
+				line-height: 2rem;
+				border-radius: 50%;
+				border: none;
+			}
+			#report>img{
+				/*height: 100% !important;*/
+				
+				
+			}
+		.info_only{
+		
+			height: 100% !important;
+			
+		}
+			.bg_dialog {
+				/*width: 100%;
+				height: 100%;*/
+				background-color:rgba(0,0,0,0.5);
+				left: 0;
+				top: 0;
+				position: absolute;
+				
+				display: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		
+		<div class="loading_load">
+			<div class="load_box">
+				<div class="img_gif"></div>
+				<p class="load_txt">
+					<!--正在加载，请稍后...-->
+				</p>
+			</div>
+		</div>
+		<header class="mui-bar mui-bar-nav sm_head_nav">
+			<img class="sm_s_photo kq_tx" src="../../images/wode/tx.png" alt="" />
+			<h1 class="mui-title">我的<!--<img src="../../images/M@.2x_03.png" alt="" />--></h1>
+			<!--<span class="sm_save">保存</span>-->
+		</header>
+
+		<div class="mui-content info_only">
+			<div class="sm_content_s">
+				<div class="hendOnly">
+					<div id="showResult">
+						<div id="file_box">
+							<form id="formid" action="" method="post">
+								<input id="image" type="file" accept="image/*" capture="camera" />
+							</form>
+
+						</div>
+						<div id="changeAvatar">
+							<img src="../../images/wode/tx.png" style="display:block;">
+						</div>
+					</div>
+					
+					<div id="showEdit" style="display: none;width:100%;height: 100%;position: absolute;bottom:20%;left: 0;z-index:96;">
+						<div style="width:100%;position: absolute;top:10px;left:0px;">
+							<button class="mui-btn" data-mui-style="fab" id='cancleBtn' style="margin-left: 10px;z-index: 99;">
+                                            取消
+                                        </button>
+							<button class="mui-btn" data-mui-style="fab" data-mui-color="primary" id='confirmBtn' style="float:right;margin-right: 10px;z-index: 99;">
+                                            确定
+                                        </button>
+						</div>
+						<div id="report">
+							<img src="../../images/head.png" alt="png" style="width: 400px;height:400px">
+						</div>
+					</div>
+				</div>
+
+				<div class="sm_name dearName"></div>
+				<ul class="mui-table-view sm_list" style="margin-top: 0x;">
+					<li class="mui-table-view-cell mui-collapse-content sm_name_new_1" data-html="name.html">
+						昵称&nbsp;&nbsp;&nbsp;&nbsp;<span id="true_name"></span>
+						<img class="sm_jiantou_1" src="../../images/wode/jiantou@2x.png" alt="" />
+					</li>
+					<li class="mui-table-view-cell mui-collapse-content sm_name_new_2 " >
+						电话&nbsp;&nbsp;&nbsp;&nbsp;<span id="number_phone"></span>
+						<!--<img class="sm_jiantou_2" src="../../images/wode/jiantou@2x.png" alt="" />-->
+					</li>
+					<li class="mui-table-view-cell mui-collapse-content sm_name_new_3 " data-html="email.html">
+						邮箱&nbsp;&nbsp;&nbsp;&nbsp;<span id="email_id"></span>
+						<img class="sm_jiantou_3" src="../../images/wode/jiantou@2x.png" alt="" />
+					</li>
+					<li class="mui-table-view-cell mui-collapse-content sm_name_new_4 " data-html="password.html">
+						密码&nbsp;&nbsp;&nbsp;&nbsp;<span>******</span>
+						<a class="sm_xgmm" class="mui-navigate-right">
+							密码修改
+						</a>
+						<img class="sm_jiantou_4" src="../../images/wode/jiantou@2x.png" alt="" />
+					</li>
+					<li class="mui-table-view-cell mui-collapse-content">
+						<!-- 性别 -->
+						<div id="sex_div">
+							<div class="sex">性别</div>
+							<img src="../../images/wode/woman_100@2x.png" alt="woman" class="man sexOp" />
+							<img src="../../images/wode/man_100@2x.png" alt="man" class="woman" />
+						</div>
+					</li>
+
+				</ul>
+				<div id="tcdl" class="tcdl sm_leave_login mui-collapse-content" onclick="loginOut();">
+					<span>退出当前账号</span>
+				</div>
+
+			</div>
+		</div>
+	</body>
+		<script type="text/javascript" src="../../js/global.js"></script>
+	<script type="text/javascript" src="../../js/mui.min.js"></script>
+
+	<script src="../../js/mui.min.js"></script>
+	<script type="text/javascript" src="../../js/public.js"></script>
+	<script type="text/javascript" src="js/setting.js"></script>
+	<script type="text/javascript" src="../../js/lrz6.mobile.min.js"></script>
+	<script type="text/javascript" src="../../dist/lrz.bundle.js"></script>
+	<!-- 剪裁-->
+	<script type="text/javascript" src="../../js/cropper.min.js"></script>
+	<script>
+		var mainImage = document.getElementById('headImage');
+		
+			mui.init({
+	//监听Android手机的back、menu按键
+	keyEventBind: {
+		backbutton: false,  //Boolean(默认true)关闭back按键监听
+		menubutton: false,   //Boolean(默认true)关闭menu按键监听
+		swipeBack: true //启用右滑关闭功能
+	}
+})
+		
+		$(".sm_list").on("click", ".mui-table-view-cell", function() {
+			var htmlName = $(this).attr('data-html');
+			openWebviews(htmlName)
+		})
+
+		//退出操作
+		function loginOut() {
+			localStorage.MemberId = "";
+			openWebview("../../sm_login.html")
+		};
+		
+	
+		
+//		$("#image").click(function() {
+//					
+//				if($("#showEdit").css("display") == "block") {
+//					
+//					$(".bg_dialog").hide();
+//				
+//					
+//				} else {
+//					$(".bg_dialog").show();
+//					
+//					
+//				}
+//			});
+//			
+		
+		
+		
+	</script>
+
+</html>

@@ -1,0 +1,150 @@
+.mui-bar {
+	background-color: rgba(255, 255, 255, 0.001);
+}
+
+.mui-title {
+	color: rgba(255, 255, 255, 0.8) !important;
+	font-size: 0.7rem;
+}
+
+.mui-bar-nav {
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+
+/*sm_content*/
+
+.header_img_box .header_img {
+	border-radius: 50%;
+	border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.header_img_box {
+	width: 100%;
+	margin-top: 0.7rem;
+	text-align: center;
+	
+}
+
+.header_img_box .header_img {
+	height: 3rem;
+	line-height: 3rem;
+	margin: 0.5rem;
+}
+
+.dp {
+	font-size: 1rem;
+}
+
+.num {
+	position: relative;
+	font-family: "微软雅黑";
+	color: rgba(255, 255, 255, 0.6) !important;
+	font-weight: 600;
+	font-size: 0.7rem;
+	padding: 0.5rem 1rem;
+	box-shadow: 0 0.01rem 0.1rem rgba(255, 255, 255, .1);
+	border-bottom: 1px solid rgba(255, 255, 255, .1);
+	background: rgba(255, 255, 255, .1);
+}
+
+.num img {
+	width: 7%;
+}
+
+.go_to_ku {
+	font-size: 0.8rem;
+}
+
+.go_off_work,
+.dp,
+.go_to_ku {
+	text-align: center;
+	margin-top: 0.2rem;
+	font-size: 0.7rem;
+	text-shadow: 0 0 4px rgba(255, 255, 255, .6);
+	color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.go_off_work,
+.go_to_ku {
+	/*			box-shadow: 0 0.01rem 0.1rem rgba(255, 255, 255, .1);*/
+	border-bottom: 1px solid rgba(255, 255, 255, .1);
+	padding: 0.4rem;
+	text-shadow: 0 0.01rem 0.1rem rgba(255, 255, 255, .6);
+}
+
+.dp {
+	font-size: 0.8rem;
+}
+
+.dp,
+.go_to_ku {
+	/*text-shadow: 0 0.01rem 0.1rem rgba(255, 255, 255, .6);*/
+	padding: 0.4rem;
+}
+
+.sm_zk {
+	float: right;
+	/*margin-right: 2.5rem;*/
+}
+
+.sm_content {
+	position: relative;
+	top: 2rem;
+	color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.sm_clear {
+	margin: 3rem 1rem 2rem 3rem;
+}
+
+.sm_clear,
+.sm_add {
+	width: 3rem;
+}
+
+.sm_add {
+	margin-right: 3rem;
+	margin-top: 3rem;
+	float: right;
+}
+
+
+/*sm_content结束*/
+
+.mui-title>img {
+	vertical-align: middle;
+	height: 1rem;
+	line-height: 1rem;
+}
+
+.mui-icon-back:before,
+.mui-icon-left-nav:before {
+	content: '\e471';
+	color: rgba(255, 255, 255, 0.8);
+}
+
+.sm_jiantou {
+	position: absolute;
+	font-variant-numeric: ;
+	right: 1rem;
+	top: 0.8rem;
+	width: 0.3rem !important;
+	height: 0.5rem;
+}
+
+.sm_content .dk_time>.num>span:nth-child(2) {
+	margin-left: 3rem;
+}
+
+.sm_content .dk_time>.num>span:nth-child(3) {
+	margin-left: 1rem;
+}
+
+.mui-title img {
+	height: 1.5rem;
+	line-height: 1.5rem;
+}

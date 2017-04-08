@@ -1,0 +1,179 @@
+.mui-slider-indicator {
+				bottom: 0;
+			}
+			
+			body {
+				overflow: hidden;
+			}
+			
+			.mui-slider {
+				position: absolute;
+				top: 0;
+				margin-top: 0 !important;
+			}
+			
+			.mui-content {
+				background-color: rgba(255, 255, 255, 0.01) !important;
+			}
+			
+			.right_Toggle {
+				position: fixed !important;
+				top: 1rem !important;
+				right: 1rem;
+				z-index: 29 !important;
+			}
+			
+			.mui-switch .mui-switch-handle {
+				top: 0px;
+				left: 0px;
+				/*width: 20px;
+						height: 20px;*/
+				background-color: rgba(255, 255, 255, 0.01)
+			}
+			
+			.mui-switch {
+				width: 3rem;
+			}
+			
+			.mui-table-view-cell {
+				overflow: visible;
+				padding: 0;
+				-webkit-touch-callout: none;
+			}
+			
+			.mui-content>.mui-table-view:first-child {
+				margin-top: -1rem;
+			}
+			
+			.mui-switch.mui-active {
+				border-color: rgba(255, 255, 255, 0.3) !important;
+				background-color: rgba(255, 255, 255, 0.3) !important;
+			}
+			
+			.mui-switch:before {
+				color: rgba(255, 255, 255, 0.4) !important;
+				content: '批量' !important;
+				/*text-shadow: 0px 0px 5px rgba(255, 255, 255, 0.6), 0px 0px 2px rgba(255, 255, 255, 0.8);*/
+			}
+			
+			.mui-switch.mui-active:before {
+				margin-left: -0.3rem;
+				background-color: rgba(255, 255, 255, 0.01) !important;
+				content: '扫描' !important;
+				/*text-shadow: 0px 0px 5px rgba(255, 255, 255, 0.6), 0px 0px 2px rgba(255, 255, 255, 0.8);*/
+			}
+			
+			.mui-switch {
+				background-color: rgba(255, 255, 255, 0.3) !important;
+			}
+			
+			#bcid1 {
+				height: 300px;
+				width: 100%;
+				/*	margin-left: -10%;*/
+				/*height: 480px; 
+				width: 360px;*/
+				/*margin: 0rem auto;*/
+				/*background: pink;*/
+			}
+			
+		
+			
+		
+			/*遮罩层*/
+			
+			.mui-popup {
+				background: rgba(0, 0, 0, 0.6);
+				top: 70%;
+			}
+			
+			.mui-popup-backdrop {
+				background: rgba(255, 255, 255, .6);
+			}
+			
+			.mui-popup .mui-popup-inner {
+				/*background: rgba(0,0,0,0.6);*/
+			}
+			
+			.mui-popup-button:first-child,
+			.mui-popup-button:last-child {
+				border-radius: 0;
+			}
+			
+			.mui-popup-buttons {
+				height: 25px;
+				margin: 0.6rem;
+			}
+			
+			.mui-popup-button {
+				color: rgba(255, 255, 255, 0.8) !important;
+				background: #75BC56;
+				width: 3rem;
+				box-shadow: 0px 0px 8px rgba(255, 255, 255, 0.5);
+				font-size: 0.6rem;
+				margin: 0 1.5rem;
+				height: 1.2rem;
+				line-height: 1.2rem;
+			}
+			
+			.mui-bar-nav~.mui-content {
+				padding-top: 0px !important;
+			}
+			
+			.mui-popup-button-bold {
+				margin-right: 1.5rem !important;
+				background: #D5B745 !important;
+				font-size: 0.6rem
+			}
+			
+			.mui-popup-title {
+				font-size: 0.7rem;
+				color: #DB565D;
+			}
+			
+			.mui-popup-title+.mui-popup-text {
+				color: rgba(255, 255, 255, 0.8);
+				font-size: 0.6rem;
+			}
+			
+			.mui-popup-inner:after {
+				background: url(../img/images/line@.2x_03.png) no-repeat;
+				background-size: cover;
+			}
+			
+		
+			/*.sm_sended {
+				height: 1.8rem;
+				line-height: 1.8rem;
+				width: 4rem;
+				letter-spacing: 4px;
+				background: rgba(0, 0, 0, 0.2);
+				text-align: center;
+				margin: 0 auto;
+				color: rgba(255, 255, 255, 0.2) !important;
+				text-shadow: 0px 0px 5px rgba(255, 255, 255, 0.2), 0px 0px 2px rgba(255, 255, 255, 0.4);
+				
+			}
+			.sm_sended_bg{
+				line-height: 1.8rem;
+				width: 4rem;
+				letter-spacing: 4px;
+				background: rgba(0, 0, 0, 0.4);
+				text-align: center;
+				margin: 0 auto;
+				color: rgba(255, 255, 255, 0.2) !important;
+				text-shadow: 0px 0px 5px rgba(255, 255, 255, 0.2), 0px 0px 2px rgba(255, 255, 255, 0.4);
+			}*/
+			/*#Gallery_Toggle{
+					height: 1.8rem;
+						line-height: 1.8rem;
+						width: 4rem;
+					background: red !important;
+				}*/
+			/*.slide_box_1{
+					background: pink !important;
+				}
+				.slide_box_2{
+					background: red;
+				}
+				*/

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head lang="en">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta id="viewport" name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+		<title>扫码登陆</title>
+		<link rel="stylesheet" type="text/css" href="../css/public.css" />
+		<link rel="stylesheet" href="login.css" />
+	<script src="../js/base.fontsize.js"></script>
+	</head>
+
+	<body>
+		<div class="person_infi" id="closeSm">
+			<p class="back_tx back_ig closeSm">关闭</p>
+		</div>
+		<div class="mainLogin">
+			<img class="comPuter" src="dm.png" alt="png" />
+			<p class="txtLogin oneP">扫描手机登陆确认</p>
+
+			<input id="sureLogin" type="button" value="登 录" />
+			<div class="login_out">取消登录</div>
+		</div>
+		
+		<script src="../js/global.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="../js/mui.min.js"></script>
+		<script type="text/javascript" src="../js/public.js"></script>
+		<script type="text/javascript" charset="utf-8">
+			mui.plusReady(function() {
+				$(function() {
+					var topView = plus.webview.getLaunchWebview();
+					$("#sureLogin").click(function() {
+						topView.evalJS("websocket.utils.Bound()");
+						restartQrcode();
+					});
+					//关闭
+					$(".login_out,#closeSm").click(function() {
+						restartQrcode();
+						topView.evalJS("websocket.utils.Exit()");
+					});
+				});
+			});
+		
+			function restartQrcode(){
+				var allView=plus.webview.all();
+					$.each(allView,function(i,item){
+						var bool = item.id.indexOf("barcode.html");
+						if(bool>=0){
+//						 item.evalJS("startRecognize()")
+ 							item.evalJS("startScan()");
+						}
+					});
+			  var curView = plus.webview.currentWebview();
+				curView.close();
+			}
+		</script>
+	</body>
+</html>

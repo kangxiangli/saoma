@@ -1,0 +1,165 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<meta name="HandheldFriendly" content="true" />
+		<meta name="MobileOptimized" content="320" />
+		<title>条码扫描</title>
+		<script type="text/javascript" src="../js/global.js"></script>
+		<script type="text/javascript" src="../js/mui.js"></script>
+		<script type="text/javascript" src="../js/common.js"></script>
+		<link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
+		<link rel="stylesheet" type="text/css" href="../css/style.css" />
+		<link rel="stylesheet" type="text/css" href="../css/mui.min.css" />
+		<!--tarcode-make的css-->
+		<link rel="stylesheet" href="../css/tarCode_mask.css" />
+		<script type="text/javascript" src="../js/public.js"></script>
+		<script type="text/javascript" src="../js/jquery.qrcode.min.js"></script>
+		<script type="text/javascript" src="../js/tarcode.js"></script>
+		<script type="text/javascript" src="wode/js/setting.js"></script>
+		<script src="../js/base.fontsize.js"></script>
+		<style>
+			.sm_tar_bg{
+				position: fixed;
+				z-index: -1;
+				width: 100%;
+				
+			}
+		</style>
+		<script type="text/javascript">
+
+mui.init({
+	//监听Android手机的back、menu按键
+	keyEventBind: {
+		backbutton: false,  //Boolean(默认true)关闭back按键监听
+		menubutton: false   //Boolean(默认true)关闭menu按键监听
+	},
+})
+
+</script>
+
+		<script>
+			function open() {
+				var barcode = plus.webview.getWebviewById("template/tarCode.html");
+				barcode.evalJS("startRecognize()")
+			}
+			mui.plusReady(function() {
+				open();
+				//				alert("tar  open")
+			});
+		</script>
+	</head>
+	<body>
+		<!--	<div class="magin_mid">-->
+		<header class="sm_head_nav">
+			<img class="sm_s_photo kq_tx" src="../images/wode/tx.png" alt="" />
+			<img class="sm_s_photo_1" src="../images/M@.2x_03.png" alt="" />
+
+			<ul class="">
+				<li class="mui-table-view-cell">
+					<div id="Gallery_Toggle" class="mui-switch right_Toggle">
+						<div class="mui-switch-handle"></div>
+					</div>
+				</li>
+			</ul>
+		</header>
+
+		<div class="mui-content_box">
+			<img class="sm_tar_bg" src="../images/yiweima/ewmbg@2x.png" alt="" />
+		<div class="sm_barcode">
+			<img class="tmk" src="../images/yiweima/tar_code@2x.png" alt="" />
+		</div>
+		
+		 <i>将条形码放入框内，自动识别</i> 
+		<!--<div class="scanbg_1"></div>
+		<div class="scanbg_2"></div>
+		<div class="scanbg_3"></div>-->
+		<div class="content">
+			<div id="Gallery" class=" " style="">
+				<div class="mui-slider-group">
+
+					<div class="mui-slider-item sm_item slide_box_1">
+						<div id="sm_code_content" class="sm_code_content">
+							<!--<div id="code_content_1">
+							扫描成功
+						</div>-->
+
+						</div>
+					</div>
+
+					<div class="mui-slider-item slide_box_2" style="display: none;">
+
+						<div id="code_content">
+
+							<ul id="OA_task_2" class="mui-table-view OA_task_2">
+
+							<!--<li class="mui-table-view-cell " data-html="details.html">
+									<div class="mui-slider-right mui-disabled">
+										<a class="mui-btn mui-btn-red">删除</a>
+									</div>
+									<div class="mui-slider-handle mui-table">
+										<div class="sm_code">
+											UGFU2038629874
+										</div>
+
+									</div>
+								</li>
+								-->
+									
+							</ul>
+						</div>
+
+						<div class="btn_qd">
+							<span id="sm_clear" class="sm_clear" onclick="cleanHistroy();">一键删除</span> <span id="sm_add" class="sm_add">一键保存</span>
+							
+						</div>
+						<div id="sm_form_sended" class="sm_form_sended">换行发送</div><div id="sm_sended" class="sm_sended">发送</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!--	</div>-->
+
+			</div>
+
+	</body>
+
+	<script type="text/javascript">
+		(function($) {
+			var btnArray = ['确认', '取消'];
+			//第二个demo，向左拖拽后显示操作图标，释放后自动触发的业务逻辑
+			$('#OA_task_2').on('slideleft', '.mui-table-view-cell', function(event) {
+				var elem = this;
+				mui.confirm('提示：数据删除后无法恢复', '确认删除该条记录？', btnArray, function(e) {
+					if(e.index == 0) {
+						elem.parentNode.removeChild(elem);
+
+					} else {
+						setTimeout(function() {
+							$.swipeoutClose(elem);
+						}, 0);
+					}
+				}, "div");
+			});
+
+		})(mui);
+	</script>
+
+</html>
+<!--<script type="text/javascript">
+mui.init({
+        keyEventBind: {
+            backbutton: true  //打开back按键监听
+        }
+    });
+    mui.back = function () {
+        
+                plus.runtime.quit();//退出APP
+            mui.toast('已退出应用');
+        
+    }
+</script>-->

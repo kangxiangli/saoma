@@ -1,0 +1,892 @@
+{
+	"@platforms": [
+		"android",
+		"iPhone",
+		"iPad"
+	],
+	"id": "H5BF7DE01",/*应用的标识，创建应用时自动生成，勿手动修改*/
+	"name": "小蝶扫码",/*应用名称，程序桌面图标名称*/
+	"version": {
+		"name": "1.0.7",/*应用版本名称*/
+		"code": "83"
+	},
+	"description": "",/*应用描述信息*/
+	"icons": {
+		"72": "icon.png"
+	},
+	"launch_path": "sm_login.html",/*应用的入口页面，默认为根目录下的index.html；支持网络地址，必须以http://或https://开头*/
+	"developer": {
+		"name": "",/*开发者名称*/
+		"email": "",/*开发者邮箱地址*/
+		"url": "http://www.dcloud.io"
+	},
+	"permissions": {
+		
+		
+		"Cache": {
+			"description": "管理应用缓存"
+		},
+		"Camera": {},
+		"Console": {
+			"description": "跟踪调试输出日志"
+		},
+		
+		"Device": {},
+		
+		"Events": {
+			"description": "应用扩展事件"
+		},
+		"File": {},
+		"Gallery": {},
+		
+		"Invocation": {},
+
+		
+		
+		"Storage": {},
+
+		
+		"Runtime": {},
+		"XMLHttpRequest": {},
+		
+		"Barcode": {},
+		
+		
+		"Webview": {},
+		"NativeUI": {},"NativeObj":{}
+	},
+	"plus": {
+		"splashscreen": {
+			"autoclose": false,/*是否自动关闭程序启动界面，true表示应用加载应用入口页面后自动关闭；false则需调plus.navigator.closeSplashscreen()关闭*/
+			"waiting": false,
+			"delay": "0"
+		},
+		"ramcachemode": "enable",/*内存缓存模块 可用*/
+		"runmode": "liberate",/*应用的首次启动运行模式，可取liberate或normal，liberate模式在第一次启动时将解压应用资源（Android平台File API才可正常访问_www目录）*/
+		"signature": "Sk9JTiBVUyBtYWlsdG86aHIyMDEzQGRjbG91ZC5pbw==",/*可选，保留给应用签名，暂不使用*/
+		"distribute": {
+			"plugins": {
+				"share": {},
+				"payment": {
+					
+				},
+				"oauth": {}
+			},
+			"apple": {
+				"appid": "",/*iOS应用标识，苹果开发网站申请的appid，如io.dcloud.HelloH5*/
+				"mobileprovision": "",/*iOS应用打包配置文件*/
+				"password": "",/*iOS应用打包个人证书导入密码*/
+				"p12": "",/*iOS应用打包个人证书，打包配置文件关联的个人证书*/
+				"devices": "universal",/*iOS应用支持的设备类型，可取值iphone/ipad/universal*/
+				"frameworks": []
+			},
+			"google": {
+				"packagename": "",/*Android应用包名，如io.dcloud.HelloH5*/
+				"keystore": "",/*Android应用打包使用的密钥库文件*/
+				"password": "",/*Android应用打包使用密钥库中证书的密码*/
+				"aliasname": "",/*Android应用打包使用密钥库中证书的别名*/
+				"permissions": ["<uses-permission android:name=\"com.android.launcher.permission.INSTALL_SHORTCUT\"/>","<uses-permission android:name=\"android.permission.READ_PHONE_STATE\"/>","<uses-permission android:name=\"android.permission.VIBRATE\"/>","<uses-permission android:name=\"android.permission.WAKE_LOCK\"/>","<uses-permission android:name=\"android.permission.CALL_PHONE\"/>","<uses-permission android:name=\"android.permission.FLASHLIGHT\"/>","<uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\"/>","<uses-feature android:name=\"android.hardware.camera.autofocus\"/>","<uses-feature android:name=\"android.hardware.camera\"/>","<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\"/>","<uses-permission android:name=\"com.android.launcher.permission.UNINSTALL_SHORTCUT\"/>","<uses-permission android:name=\"android.permission.CAMERA\"/>"]
+			},
+			"orientation": ["portrait-primary"],/*应用支持的方向，portrait-primary：竖屏正方向；portrait-secondary：竖屏反方向；landscape-primary：横屏正方向；landscape-secondary：横屏反方向*/
+			"icons": {
+				"ios": {
+					"prerendered": true, /*应用图标是否已经高亮处理，在iOS6及以下设备上有效*/
+					"auto": "", /*应用图标，分辨率：512x512，用于自动生成各种尺寸程序图标*/
+					"iphone": {
+						"normal": "unpackage/res/icons/57x57.png",/*iPhone普通屏幕程序图标，分辨率：57x57*/
+						"retina": "unpackage/res/icons/114x114.png",/*iPhone高分屏程序图标，分辨率：114x114*/
+						"retina7": "unpackage/res/icons/120x120.png",/*iPhone iOS7高分屏程序图标，分辨率：120x120*/
+						"spotlight-normal": "unpackage/res/icons/29x29.png", /*iPhone Spotlight搜索程序图标，分辨率：29x29*/
+						"spotlight-retina": "unpackage/res/icons/58x58.png", /*iPhone高分屏Spotlight搜索程序图标，分辨率：58x58*/
+						"spotlight-retina7": "unpackage/res/icons/80x80.png",/*iPhone iOS7高分屏Spotlight搜索程序图标，分辨率：80x80*/
+						"settings-normal": "unpackage/res/icons/29x29.png", /*iPhone设置页面程序图标，分辨率：29x29*/
+						"settings-retina": "unpackage/res/icons/58x58.png",
+						"retina8": "unpackage/res/icons/180x180.png",
+						"settings-retina8": "unpackage/res/icons/87x87.png"
+					},
+					"ipad": {
+						"normal": "unpackage/res/icons/72x72.png", /*iPad普通屏幕程序图标，分辨率：72x72*/
+						"retina": "unpackage/res/icons/144x144.png", /*iPad高分屏程序图标，分辨率：144x144*/
+						"normal7": "unpackage/res/icons/76x76.png", /*iPad iOS7程序图标，分辨率：76x76*/
+						"retina7": "unpackage/res/icons/152x152.png", /*iPad iOS7高分屏程序图标，分辨率：152x152*/
+						"spotlight-normal": "unpackage/res/icons/50x50.png", /*iPad Spotlight搜索程序图标，分辨率：50x50*/
+						"spotlight-retina": "unpackage/res/icons/100x100.png", /*iPad高分屏Spotlight搜索程序图标，分辨率：100x100*/
+						"spotlight-normal7": "unpackage/res/icons/40x40.png",/*iPad iOS7 Spotlight搜索程序图标，分辨率：40x40*/
+						"spotlight-retina7": "unpackage/res/icons/80x80.png",/*iPad iOS7高分屏Spotlight搜索程序图标，分辨率：80x80*/
+						"settings-normal": "unpackage/res/icons/29x29.png",/*iPad设置页面程序图标，分辨率：29x29*/
+						"settings-retina": "unpackage/res/icons/58x58.png"
+					}
+				},
+				"android": {
+					"mdpi": "unpackage/res/icons/48x48.png", /*普通屏程序图标，分辨率：48x48*/
+					"ldpi": "unpackage/res/icons/48x48.png", /*大屏程序图标，分辨率：48x48*/
+					"hdpi": "unpackage/res/icons/72x72.png", /*高分屏程序图标，分辨率：72x72*/
+					"xhdpi": "unpackage/res/icons/96x96.png",/*720P高分屏程序图标，分辨率：96x96*/
+					"xxhdpi": "unpackage/res/icons/144x144.png",
+					"xxxhdpi": "unpackage/res/icons/192x192.png"
+				}
+			},
+			"splashscreen": {
+
+				"android": {
+
+					/*普通屏启动图片，分辨率：240x282*/
+					"ldpi": "images/firstPage/480_762.png", /*大屏启动图片，分辨率：320x442*/
+					/*高分屏启动图片，分辨率：480x762*/
+					/*720P高分屏启动图片，分辨率：720x1242*/
+					"mdpi": "images/firstPage/480_762.png",
+					"hdpi": "images/firstPage/480_762.png",
+					"xhdpi": "images/firstPage/720_1242.png",
+					"xxhdpi": "images/firstPage/1080_1882.png"
+				}
+			}
+		}
+	},
+	"dependencies": {
+		"pages": {
+			"index.html": {
+				"resources": [
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"template/about.html",
+					"css/app.css",
+					"template/contact.html",
+					"js/update.js",
+					"css/public.css",
+					"images/background@.2x.png",
+					"images/tabbar/saoma@2x.png",
+					"css/style.css",
+					"js/jquery-1.8.3.min.js",
+					"images/tabbar/jilu@2x.png",
+					"images/juxingTab@2x.png",
+					"images/tabbar/wode@2x.png",
+					"images/tabbar/piliang@2x.png",
+					"template/barcode.html",
+					"images/beijing.png",
+					"js/public.js",
+					"js/global.js",
+					"template/tarCode.html",
+					null,
+					"img/dlzc/sj@2x.png",
+					"img/dlzc/mm@2x.png",
+					"js/base.fontsize.js",
+					"images/tab_bar@2x.png",
+					"sm_login.html"
+				],
+				"refer": [
+					"template/setting.html",
+					"template/chat.html",
+					"template/guide.html",
+					"login.html",
+					"template/remeber.html",
+					"template/wode.html",
+					"template/wode/wode.html",
+					"template/login.html",
+					"template/barcode_mask.html",
+					"login/login.html"
+				],
+				"priority": 0
+			},
+			"template/contact.html": {
+				"resources": [
+					"images/60x60.gif",
+					"js/jquery-1.8.3.min.js",
+					"js/mui.min.js",
+					"css/app.css",
+					"css/mui.min.css",
+					"fonts/mui.ttf",
+					"images/background@.2x.png",
+					"css/public.css",
+					"js/BeatPicker.min.js",
+					"css/BeatPicker.min.css",
+					"js/prism.js",
+					"js/jedate.js",
+					"css/jedate.css",
+					"js/css/jedate.css"
+				],
+				"refer": [
+					"template/imageView.html",
+					"template/readQrcode.html",
+					"template/qrcode.html",
+					"template/pay.html",
+					"template/share.html",
+					"template/readbarQrcode.html",
+					"template/login.html",
+					"template/update.html",
+					"template/shijian.html"
+				],
+				"priority": 0
+			},
+			"template/chat.html": {
+				"resources": [
+					"js/mui.js",
+					"css/mui.min.css",
+					"js/tools.js",
+					"css/app.css",
+					"js/jquery-1.8.3.min.js",
+					"js/mui.min.js",
+					"images/background@.2x.png",
+					"css/public.css",
+					"js/immersed.js",
+					"fonts/mui.ttf"
+				],
+				"refer": [
+					"template/detail.html"
+				],
+				"priority": 0
+			},
+			"template/detail.html": {
+				"resources": [
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"css/app.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"template/about.html": {
+				"resources": [
+					"js/tools.js",
+					"images/cbd.jpg",
+					"images/muwu.jpg",
+					"images/yuantiao.jpg",
+					"images/shuijiao.jpg",
+					"js/swiper-3.3.1.min.js",
+					"css/swiper-3.3.1.min.css",
+					"css/swiper-3.4.0.min.css",
+					"js/swiper-3.4.0.min.js",
+					"js/common.js",
+					"css/common.css",
+					"js/immersed.js",
+					"js/mui.js",
+					"js/index.js",
+					"js/jquery-1.8.3.min.js",
+					"js/mui.min.js",
+					"css/app.css",
+					"fonts/mui.ttf",
+					"images/background@.2x.png",
+					"css/mui.min.css",
+					"css/public.css",
+					"js/global.js"
+				],
+				"refer": [
+					"template/detail.html"
+				],
+				"priority": 0
+			},
+			"template/imageView.html": {
+				"resources": [
+					"js/mui.zoom.js",
+					"js/mui.previewimage.js",
+					"css/mui.css",
+					"js/tools.js",
+					"images/yuantiao.jpg",
+					"js/mui.min.js",
+					"css/app.css",
+					"css/imageview.css",
+					"fonts/mui.ttf",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"template/guide.html": {
+				"resources": [
+					"images/index.png",
+					"images/firstPage/640-960.png",
+					"images/firstPage/1242-2208.png",
+					"images/firstPage/320-480.png",
+					"images/firstPage/750-1334.png",
+					"js/mui.min.js",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"template/setting.html": {
+				"resources": [
+					"images/shuijiao.jpg"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"template/readQrcode.html": {
+				"resources": [
+					"js/mui.min.js",
+					"css/app.css",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"js/jquery-1.8.3.min.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"template/qrcode.html": {
+				"resources": [
+					"js/jquery-1.8.3.min.js",
+					"js/mui.min.js",
+					"css/app.css",
+					"css/mui.min.css",
+					"js/jquery.qrcode.min.js",
+					"fonts/mui.ttf"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"template/pay.html": {
+				"resources": [
+					"js/tools.js",
+					"js/mui.zoom.js",
+					"js/mui.min.js",
+					"css/app.css",
+					"fonts/mui.ttf",
+					"images/alipay.jpg",
+					"css/mui.min.css",
+					"js/mui.previewimage.js",
+					"images/icon-weixin.png",
+					"css/mui.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"template/share.html": {
+				"resources": [
+					"js/mui.zoom.js",
+					"js/mui.previewimage.js",
+					"css/mui.css",
+					"js/tools.js",
+					"js/mui.min.js",
+					"css/app.css",
+					"fonts/mui.ttf",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"template/login.html": {
+				"resources": [
+					"js/tools.js",
+					"js/mui.zoom.js",
+					"images/icon-qq.png",
+					"js/mui.min.js",
+					"css/app.css",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"images/icon-sina.png",
+					"js/mui.previewimage.js",
+					"images/icon-weixin.png",
+					"images/Icon@2x.png",
+					"css/mui.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"template/update.html": {
+				"resources": [
+					"js/update.js",
+					"js/mui.min.js",
+					"css/app.css",
+					"fonts/mui.ttf",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"template/shijian.html": {
+				"resources": [
+					"js/tools.js",
+					"js/mui.zoom.js",
+					"js/mui.previewimage.js",
+					"css/mui.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"login.html": {
+				"resources": [
+					"images/M@.2x_03.png",
+					"images/background@.2x.png",
+					"css/style.css",
+					"js/global.js",
+					"css/public.css",
+					"js/mui.js",
+					"js/mui.min.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"template/remeber.html": {
+				"resources": [
+					"js/css/jedate.css",
+					"js/jedate.js",
+					"css/jedate.css",
+					"images/jilu/clipboard@2x.png",
+					"images/jilu/search@2x.png",
+					"images/wode/tuoyuan_1@2x.png",
+					"fonts/mui.ttf",
+					"css/style.css",
+					"css/public.css",
+					"js/jquery-1.8.3.min.js",
+					"css/app.css",
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"images/beijing.png",
+					"images/M@.2x_03.png",
+					"images/jilu/jiantou@2x.png",
+					"js/public.js",
+					"images/line@.2x_03.png",
+					"template/wode/js/setting.js",
+					"images/wode/tx.png",
+					"js/global.js",
+					"js/base.fontsize.js",
+					"images/jilu/calender@2x_03.png"
+				],
+				"refer": [
+					"template/login.html",
+					"template/details.html",
+					"template/code_detail.html"
+				],
+				"priority": 0
+			},
+			"template/wode.html": {
+				"resources": [
+					"images/wode/tuoyuan_2@2x.png",
+					"images/wode/jiahao@2x.png",
+					"images/wode/nan@2x.png",
+					"images/wode/jiantou@2x.png",
+					"images/wode/nv@2x.png",
+					"js/mui.min.js",
+					"css/app.css",
+					"images/background@.2x.png",
+					"css/mui.min.css",
+					"css/public.css",
+					"images/wode/tuoyuan_1@2x.png",
+					"images/beijing.png"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"template/barcode.html": {
+				"resources": [
+					"js/common.js",
+					"js/global.js",
+					"js/mui.js",
+					"js/immersed.js",
+					"js/jquery-1.8.3.min.js",
+					"js/mui.min.js",
+					"css/app.css",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"js/jquery.qrcode.min.js",
+					"css/public.css",
+					"images/beijing.png",
+					"js/index.js",
+					"images/M@.2x_03.png",
+					"images/wode/tuoyuan_1@2x.png",
+					"js/barcode.js",
+					"images/jilu/clipboard@2x.png",
+					"js/code.js",
+					"css/barcode.css",
+					"images/wode/tx.png",
+					"js/base.fontsize.js"
+				],
+				"refer": [
+					"template/webview_mask_side.html",
+					"template/barcode_mask.html",
+					"login/login.html"
+				],
+				"priority": 0
+			},
+			"template/wode/wode.html": {
+				"resources": [
+					"js/mui.min.js",
+					"images/wode/nan@2x.png",
+					"images/wode/jiantou@2x.png",
+					"images/wode/tuoyuan_2@2x.png",
+					"images/wode/nv@2x.png",
+					"images/wode/tuoyuan_1@2x.png",
+					"js/jquery-1.8.3.min.js",
+					"css/app.css",
+					"js/public.js",
+					"css/mui.min.css",
+					"css/public.css",
+					"images/beijing.png",
+					"images/wode/jiahao@2x.png",
+					"images/M@.2x_03.png",
+					"css/new_file.css",
+					"template/wode/js/setting.js",
+					"js/global.js",
+					"images/wode/m.png",
+					"images/wode/w.png",
+					"images/head.png",
+					"js/lrz6.mobile.min.js",
+					"dist/lrz.all.bundle.js",
+					"css/cropper.min.css",
+					"js/cropper.min.js",
+					"dist/lrz.bundle.js",
+					"dist/2.chunk.js",
+					"images/11.gif",
+					"images/wode/nv.png",
+					"images/wode/tx.png",
+					"images/wode/nan.png",
+					"images/wode/wode@2x.png",
+					"images/wode/boy@2x.png",
+					"js/base.fontsize.js",
+					"images/wode/woman_100@2x.png",
+					"images/wode/man_100@2x.png"
+				],
+				"refer": [
+					"template/wode/email.html",
+					"template/wode/tell.html",
+					"template/wode/name.html",
+					"template/wode/password.html",
+					"sm_login.html"
+				],
+				"priority": 0
+			},
+			"template/wode/email.html": {
+				"resources": [
+					"js/mui.min.js",
+					"css/app.css",
+					"fonts/mui.ttf",
+					"js/public.js",
+					"css/mui.min.css",
+					"css/public.css",
+					"images/beijing.png",
+					"template/wode/js/setting.js",
+					"js/global.js",
+					"js/base.fontsize.js"
+				],
+				"refer": [
+					"template/wode/wode.html"
+				],
+				"priority": 0
+			},
+			"template/wode/tell.html": {
+				"resources": [
+					"js/mui.min.js",
+					"css/app.css",
+					"fonts/mui.ttf",
+					"js/public.js",
+					"css/mui.min.css",
+					"css/public.css",
+					"images/beijing.png",
+					"js/base.fontsize.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"template/wode/password.html": {
+				"resources": [
+					"js/mui.min.js",
+					"css/app.css",
+					"fonts/mui.ttf",
+					"js/public.js",
+					"css/mui.min.css",
+					"css/public.css",
+					"images/beijing.png",
+					"template/wode/js/setting.js",
+					"js/global.js",
+					"js/base.fontsize.js"
+				],
+				"refer": [
+					"sm_login.html"
+				],
+				"priority": 0
+			},
+			"template/wode/name.html": {
+				"resources": [
+					"js/mui.min.js",
+					"css/app.css",
+					"fonts/mui.ttf",
+					"js/public.js",
+					"css/mui.min.css",
+					"css/public.css",
+					"images/beijing.png",
+					"template/wode/js/setting.js",
+					"js/global.js",
+					"js/base.fontsize.js"
+				],
+				"refer": [
+					"template/wode/wode.html"
+				],
+				"priority": 0
+			},
+			"template/details.html": {
+				"resources": [
+					"js/css/jedate.css",
+					"images/M@.2x_03.png",
+					"js/jedate.js",
+					"images/wode/jiantou@2x.png",
+					"fonts/mui.ttf",
+					"css/public.css",
+					"images/wode/tuoyuan_1@2x.png",
+					"images/jilu/clipboard@2x.png",
+					"js/jquery-1.8.3.min.js",
+					"css/app.css",
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"js/update.js",
+					"images/beijing.png",
+					"images/head.png",
+					"images/jilu/tuiyuan_1@2x.png",
+					"js/public.js",
+					"css/details.css",
+					"template/wode/js/setting.js",
+					"images/wode/tx.png",
+					"js/base.fontsize.js",
+					"images/jilu/delete@2x.png",
+					"images/jilu/list@2x.png",
+					"images/jilu/time@2x.png",
+					"images/jilu/uploading@2x.png"
+				],
+				"refer": [
+					"template/qrcode_detail.html",
+					"template/code_detail.html"
+				],
+				"priority": 0
+			},
+			"template/webview_mask_side.html": {
+				"resources": [
+					"js/common.js",
+					"css/common.css",
+					"images/M@.2x_03.png",
+					"css/style.css",
+					"images/wode/tuoyuan_1@2x.png",
+					"images/ewmK@2x.png",
+					"js/index.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"template/barcode_mask.html": {
+				"resources": [
+					"images/ewmK@2x.png",
+					"css/common.css",
+					"js/index.js",
+					"images/M@.2x_03.png",
+					"js/common.js",
+					"js/jquery.qrcode.min.js",
+					"css/style.css",
+					"js/global.js",
+					"js/mui.js",
+					"images/wode/tuoyuan_1@2x.png",
+					"images/erweimabeijing.png",
+					"images/erweima_k@2x.png",
+					"css/app.css",
+					"images/erweimabg.png",
+					"images/ewmbg-1.png",
+					"images/jilu/clipboard@2x.png",
+					"js/barcode.js",
+					"js/code.js",
+					"css/barcode_mask..css",
+					"images/ewmbg-2.png",
+					"images/wode/tx.png",
+					null,
+					"css/barcode_mask.css",
+					"template/wode/js/setting.js",
+					"js/base.fontsize.js",
+					"images/bd@2x.png",
+					"images/background@2x.png",
+					"images/white-shade@2x.png",
+					"images/QR-code-case@2x.png",
+					"images/xiangce@2x.png"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"template/tarCode.html": {
+				"resources": [
+					"images/M@.2x_03.png",
+					"js/jquery-1.8.3.min.js",
+					"js/mui.min.js",
+					"css/app.css",
+					"css/mui.min.css",
+					"css/public.css",
+					"images/beijing.png",
+					"js/immersed.js",
+					"images/wode/tuoyuan_1@2x.png",
+					"img/images/line@.2x_03.png",
+					"js/common.js",
+					"js/jquery.qrcode.min.js",
+					"js/global.js",
+					"js/mui.js",
+					null,
+					"js/tarcode.js",
+					"css/tarCode.css",
+					"images/ywmbg-2.png",
+					"js/base.fontsize.js"
+				],
+				"refer": [
+					"template/tarCode_mask.html"
+				],
+				"priority": 0
+			},
+			"template/tarCode_mask.html": {
+				"resources": [
+					"images/ewmK@2x.png",
+					"images/M@.2x_03.png",
+					"js/common.js",
+					"css/common.css",
+					"js/public.js",
+					"js/jquery.qrcode.min.js",
+					"css/style.css",
+					"js/global.js",
+					"js/mui.js",
+					"images/wode/tuoyuan_1@2x.png",
+					"images/yiweima_k.png",
+					"images/yiweimabeijing.png",
+					null,
+					"images/yiweimabg.png",
+					"css/mui.min.css",
+					"css/public.css",
+					"images/beijing.png",
+					"images/ywmbg_02.png",
+					"images/yiweima/tmk.png",
+					"js/tarcode.js",
+					"img/images/line@.2x_03.png",
+					"css/tarCode_mask.css",
+					"images/ywmbg-2.png",
+					"template/wode/js/setting.js",
+					"images/wode/tx.png",
+					"js/base.fontsize.js",
+					"images/yiweima/tar_code@2x.png",
+					"images/yiweima/ewmbg@2x.png"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"template/code_detail.html": {
+				"resources": [
+					"js/css/jedate.css",
+					"js/jquery-1.8.3.min.js",
+					"js/jedate.js",
+					"js/mui.min.js",
+					"css/app.css",
+					"fonts/mui.ttf",
+					"js/public.js",
+					"css/mui.min.css",
+					"css/style.css",
+					"css/public.css",
+					"images/beijing.png",
+					"css/code_detail.css",
+					"js/base.fontsize.js",
+					"images/wode/tx.png",
+					"images/line@.2x_03.png"
+				],
+				"refer": [
+					"template/details.html"
+				],
+				"priority": 0
+			},
+			"template/qrcode_detail.html": {
+				"resources": [
+					"js/css/jedate.css",
+					"js/jquery-1.8.3.min.js",
+					"js/jedate.js",
+					"js/mui.min.js",
+					"css/app.css",
+					"fonts/mui.ttf",
+					"js/public.js",
+					"css/mui.min.css",
+					"css/style.css",
+					"css/public.css",
+					"images/beijing.png",
+					"js/base.fontsize.js",
+					"images/line@.2x_03.png"
+				],
+				"refer": [
+					"template/details.html"
+				],
+				"priority": 0
+			},
+			"sm_login.html": {
+				"resources": [
+					"images/M@.2x_03.png",
+					"js/mui.min.js",
+					"images/background@.2x.png",
+					"css/style.css",
+					"js/global.js",
+					"css/public.css",
+					"index.html",
+					"js/jquery-1.8.3.min.js",
+					"js/public.js",
+					"images/status.gif",
+					"images/head.png",
+					"images/11.gif",
+					"images/loding.png",
+					"images/loding_03.png",
+					"js/loading.js",
+					"js/base.fontsize.js",
+					"images/logo_new.png",
+					"images/login/login@2x.png",
+					null
+				],
+				"refer": [
+					"reg.html"
+				],
+				"priority": 0
+			},
+			"reg.html": {
+				"resources": [
+					"js/jquery-1.8.3.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"img/dlzc/sj@2x.png",
+					"js/jquery.cookie.js",
+					"images/beijing.png",
+					"img/dlzc/mm@2x.png",
+					"img/dlzc/yzm@2x.png",
+					"js/global.js",
+					"css/public.css",
+					"images/background@.2x.png",
+					"images/M@.2x_03.png",
+					"js/mui.min.js",
+					"sm_login.html",
+					"js/base.fontsize.js",
+					"images/login/login@2x.png",
+					"js/public.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"login/login.html": {
+				"resources": [
+					"login/dm.png",
+					"login/login.css",
+					"js/global.js",
+					"css/public.css",
+					"images/beijing.png",
+					"js/code.js",
+					"js/mui.min.js",
+					"index.html",
+					"js/public.js",
+					"js/base.fontsize.js"
+				],
+				"refer": [
+					"template/barcode.html",
+					"template/barcode_mask.html"
+				],
+				"priority": 0
+			}
+		},
+		"idle": {
+			"resources": [
+				"images/qrcode.png",
+				"效果图/HTML5.gif",
+				"images/logo.png",
+				"images/login-1.png",
+				"效果图/HTML5-上下拉.gif",
+				"images/iconfont-tianjia.png"
+			]
+		}
+	},
+	"unpackage": [
+		"images/iconfont-tianjia.png",
+		"images/login-1.png",
+		"images/logo.png",
+		"images/qrcode.png"
+	]
+}

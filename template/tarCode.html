@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>条形码</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<!–uc强制竖屏–>
+		<meta name="screen-orientation" content="portrait">
+		<!–QQ强制竖屏–>
+		<meta name="x5-orientation" content="portrait">
+		<link rel="stylesheet" href="../css/public.css" />
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<!--App自定义的css-->
+		<link rel="stylesheet" type="text/css" href="../css/app.css" />
+		<!--tarcode的css-->
+		<link rel="stylesheet" href="../css/tarCode.css" />
+		<script src="../js/base.fontsize.js"></script>
+		
+
+	</head>
+	<body>
+		<header class="sm_head_nav" style="display: none;">
+			<img class="sm_s_photo kq_tx" src="../images/wode/tuoyuan_1@2x.png" alt="" />
+			<img class="sm_s_photo_1" src="../images/M@.2x_03.png" alt="" />
+			<ul class="">
+				<li class="mui-table-view-cell">
+					<div id="Gallery_Toggle" class="mui-switch right_Toggle">
+						<div class="mui-switch-handle"></div>
+					</div>
+				</li>
+			</ul>
+		</header>
+		<div id="bcid1"></div>
+	</body>
+	<script src="../js/mui.min.js"></script>
+	<script src="../js/global.js"></script>
+	<script type="text/javascript" src="../js/jquery.qrcode.min.js"></script>
+	<script type="text/javascript" src="../js/common.js"></script>
+	<!--<script type="text/javascript" src="../js/tarcode.js"></script>-->
+
+</html>
+<script type="text/javascript">
+
+mui.init({
+	//监听Android手机的back、menu按键
+	keyEventBind: {
+		backbutton: false,  //Boolean(默认true)关闭back按键监听
+		menubutton: false   //Boolean(默认true)关闭menu按键监听
+	},
+})
+
+
+  
+	var startRecognize;
+	mui.ready(function() {
+		var ws = null;
+		wc = null;
+		// 扩展API加载完毕，现在可以正常调用扩展API 
+		function plusReady() {
+			ws = plus.webview.currentWebview();
+			showSide()
+			// 用户点击后
+			ws.addEventListener("maskClick", function() {
+				wc.close("auto");
+			}, false);
+		}
+		// 判断扩展API是否准备，否则监听"plusready"事件
+		if(window.plus) {
+			plusReady();
+		} else {
+			document.addEventListener("plusready", plusReady, false);
+		}
+		// 显示tarmark页面
+		function showSide() {
+			// 防止快速点击可能导致多次创建
+			if(wc) {
+				return;
+			}
+			// 开启遮罩
+			//	ws.setStyle({mask:"rgba(0,0,0,0.5)"});
+			// 创建tarmark页面
+			wc = plus.webview.create("tarCode_mask.html", "sideT", {
+				left: "0",
+				bottom: "50px",
+				top: "0px",
+				width: "100%",
+				popGesture: "none",
+				background: 'transparent'
+			});
+			
+		
+
+			// tarmark页面加载后显示（避免白屏）
+			wc.addEventListener("loaded", function() {
+				wc.show("none", 0);
+
+			}, false);
+		};
+
+		// 扩展API加载完毕后调用onPlusReady回调函数 
+		document.addEventListener("plusready", onPlusReady, false);
+		// 扩展API加载完毕，现在可以正常调用扩展API
+		function onPlusReady() {
+			var e = document.getElementById("scan");
+			//e.removeAttribute("disabled");
+		};
+		var scan = null;
+		startRecognize = function() {
+			var filter = [plus.barcode.CODE39, plus.barcode.CODE93];
+			scan = new plus.barcode.Barcode("bcid1", filter);
+			scan.onmarked = onmarked;
+			startScan();
+		}
+
+		function onmarked(type, result) {
+			result = result.replace(/\n/g, '');
+			//alert($("#Gallery_Toggle").attr('class'))
+			var tarMarkV = plus.webview.getWebviewById('sideT');
+			//console.log( JSON.stringify(tarMarkV.getURL()));
+			tarMarkV.evalJS("getRelute('" + result + "')");
+			setTimeout(startScan,1000)
+			
+		}
+
+		function startScan() {
+			scan.start();
+		}
+
+		function cancelScan() {
+			scan.cancel();
+		}
+
+		function setFlash() {
+			scan.setFlash();
+		}
+
+		function closeScan() {
+			scan.close();
+		}
+
+	});
+</script>
+
+<script type="text/javascript" src="../js/immersed.js"></script>

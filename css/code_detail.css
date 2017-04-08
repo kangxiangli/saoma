@@ -1,0 +1,321 @@
+html,
+body {
+	color: rgba(255, 255, 255, 0.8);
+		font-family: "微软雅黑";
+		font-size: 0.7rem;
+}
+
+.mui-table-view:before {
+	0px;
+}
+
+.mui-table-view:after {
+	0px;
+}
+
+.mui-search .mui-placeholder .mui-icon,
+.mui-search .mui-placeholder,
+.mui-input-row .mui-input-clear~.mui-icon-clear {
+	color: rgba(255, 255, 255, 0.8) !important;
+	/*font-size: 0.7rem;*/
+}
+
+input[type=text] {
+	width: 40%;
+	float: left;
+	height: 3rem;
+	color: rgba(255, 255, 255, 0.8) !important;
+	margin-left: 45%;
+	background-color: rgba(255, 255, 255, 0.001);
+}
+
+
+/*contact.html*/
+
+.mui-bar-nav {
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+.calendar_button {
+	width: 1rem;
+	margin-top: -1.5rem;
+	height: 1.2rem;
+	/* float: left; */
+	color: rgba(255, 255, 255, 0.8) !important;
+	background-color: rgba(255, 255, 255, 0.001);
+}
+
+.mui-content {
+	/*margin-top: 2rem;*/
+	background-color: rgba(255, 255, 255, 0.001);
+}
+
+.mui-table-view {
+	background-color: rgba(255, 255, 255, 0.001);
+}
+
+.mui-bar {
+	background-color: rgba(255, 255, 255, 0.001);
+}
+
+.sm_title {
+	color: rgba(255, 255, 255, 0.8);
+}
+
+.sm_s_photo {
+	border: 2px solid rgba(255, 255, 255, 0.3);
+	position: absolute;
+	top: 2.2rem;
+	left: 1rem;
+	z-index: 999;
+	height: 1.6rem;
+	line-height: 1.6rem;
+	border-radius: 50%;
+	
+
+}
+.maker_body{
+	position: absolute;
+	top: 2.5rem;
+	left: 4rem;
+
+	font-size: 0.7rem;
+}
+.photo_xq{
+	width: 100%;
+	background: rgba(255, 255, 255, 0.1);
+	height: 4rem;
+
+}
+.mui-bar {
+	background: rgba(255, 255, 255, 0.001);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+input[type=search] {
+	/*padding: 0.4rem 0 !important;
+				margin-bottom: 0rem !important;*/
+}
+
+.mui-search {
+	position: fixed;
+	z-index: 99;
+	top: 2rem;
+	width: 100%;
+	height: 2rem;
+	line-height: 2rem;
+	background: #39646A;
+}
+
+.mui-table-view .mui-table-view-cell .sm_benyue {
+	float: right;
+	height: 1.5rem;
+	line-height: 1.5rem;
+	margin-right: 0.7rem;
+	color: rgba(255, 255, 255, 0.8);
+
+}
+
+
+.mui-table-view .mui-table-view-cell .sm_benyue_jilu {
+	/*display: inline-block;
+				position: absolute;
+				right: 2rem;
+				top: 0.5rem;*/
+	
+}
+
+.mui-table-view>li:nth-child(1) {
+	background: rgba(255, 255, 255, 0.1);
+	height: 1rem !important;
+	line-height: 1rem;
+}
+
+.mui-table-view:before {
+	background-color: none !important;
+}
+
+
+/*时间*/
+
+.sm_time {}
+
+.mui-table-view-cell:after,
+.mui-table-view:after {
+	background-color: rgba(255, 255, 255, 0.001);
+}
+
+
+/*每个li*/
+
+.mui-content .mui-table-view-cell {
+	/*height: 2rem !important;*/
+	padding: 5px;
+
+	box-shadow: 0 0rem 0.01rem 0.05rem rgba(255,255,255,.1);
+	box-sizing: content-box;
+}
+
+
+/* 查看月记录*/
+
+.sm_time_tow {
+	height: 1.5rem !important;
+	background: rgba(0, 0, 0, 0.2);
+}
+
+.mui-bar-nav {
+	background: #358B8A;
+}
+
+
+.mui-content .mui-input-row .mui-input-clear~.mui-icon-clear {
+	top: 0.5rem;
+}
+
+.mui-table-view-cell>.mui-slider-handle {
+	
+	background-color: rgba(255, 255, 255, 0.001);
+}
+
+.sm_box_left {
+	float: left;
+	height: 1.5rem;
+	line-height: 1.5rem;
+	margin-left: 0.7rem;
+}
+
+.sm_title_left {
+	float: left;
+	width: 30%;
+	height: 1rem;
+	line-height: 1rem;
+	margin-left: 0.7rem;
+	
+}
+
+.sm_title_right {
+	float: right;
+	width: 30%;
+	height: 1rem;
+	line-height: 1rem;
+
+}
+
+.sm_benyue_color {
+	background: rgba(0, 0, 0, 0.2);
+	!important;
+}
+
+.mui-search .mui-placeholder {
+	
+	line-height: 2rem;
+}
+
+.mui-bar-nav~.mui-content {
+	/*padding-top: 4rem;*/
+}
+
+.mui-content>.mui-table-view:first-child {
+	margin-top: 0px;
+}
+
+.mui-title>img {
+	vertical-align: middle;
+	height: 1rem;
+	line-height: 1rem;
+}
+
+#rotote,
+#rotote1 {
+	display: inline-block;
+	width: 0.3rem;
+}
+
+.mui-popup-title {
+	font-family: "微软雅黑";
+	font-weight: 700;
+	font-size: 0.7rem;
+	color: rgba(255, 255, 255, 0.8);
+}
+
+
+.mui-popup-buttons {
+	height: 25px;
+	margin: 0.6rem;
+}
+
+.mui-popup-buttons {
+	height: 25px;
+	margin: 0.6rem;
+}
+
+.mui-popup-title+.mui-popup-text {
+	color: rgba(255, 255, 255, 0.2);
+
+}
+
+.mui-popup-backdrop {
+	background: rgba(255, 255, 255, .6);
+}
+
+.mui-popup-inner:after {
+	background: url(../images/line@.2x_03.png) no-repeat;
+	background-size: cover;
+}
+
+.mui-popup {
+	background: #354051;
+	top: 70%;
+}
+
+.mui-popup-backdrop {
+	background: rgba(0, 0, 0, .6);
+}
+
+.mui-popup .mui-popup-inner {
+	/*background: rgba(0,0,0,0.6);*/
+}
+
+.mui-popup-button:first-child,
+.mui-popup-button:last-child {
+	border-radius: 0;
+}
+
+.mui-popup-buttons {
+	height: 25px;
+	margin: 0.6rem;
+}
+
+.mui-popup-button {
+	color: #43A278 !important;
+	background: #354051;
+	
+	/* margin: 0 1.5rem; */
+	height: 1.2rem;
+	line-height: 1.2rem;
+}
+
+.mui-bar-nav~.mui-content {
+	padding-top: 0px !important;
+}
+
+.mui-popup-button-bold {
+	width: 100%;
+	color: rgba(255, 255, 255, 0.8) !important;
+	/*margin-right: 1.5rem !important;*/
+	border-left: 1px solid rgba(255, 255, 255, 0.3);
+	background: #354051 !important;
+	font-size: 0.8rem
+}
+
+
+.mui-icon-back:before,
+.mui-icon-left-nav:before {
+	content: '\e471';
+	color: rgba(255, 255, 255, 0.8)
+}
+.mui-navigate-right:after, .mui-push-right:after {
+content: '';
+}

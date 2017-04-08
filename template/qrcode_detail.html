@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>条码详情</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" type="text/css" href="../css/public.css" />
+		<link rel="stylesheet" href="../css/mui.min.css" />
+		<link rel="stylesheet" href="../css/app.css" />
+		<link rel="stylesheet" type="text/css" href=. "../css/jedate.css" />
+		<link rel="stylesheet" type="text/css" href="../css/style.css" />
+		<script src="../js/base.fontsize.js"></script>
+		<script type="text/javascript" src="../js/jedate.js"></script>
+		<style>
+			html,
+			body {
+				color: rgba(255, 255, 255, 0.8);
+				font-size: 0.6rem;
+			}
+			
+			.mui-table-view:before {
+				0px;
+			}
+			
+			.mui-table-view:after {
+				0px;
+			}
+			
+			.mui-search .mui-placeholder .mui-icon,
+			.mui-search .mui-placeholder,
+			.mui-input-row .mui-input-clear~.mui-icon-clear {
+				color: rgba(255, 255, 255, 0.8) !important;
+				/*font-size: 0.7rem;*/
+			}
+			
+			input[type=text] {
+				width: 40%;
+				float: left;
+				height: 3rem;
+				color: rgba(255, 255, 255, 0.8) !important;
+				margin-left: 45%;
+				background-color: rgba(255, 255, 255, 0.001);
+			}
+			/*contact.html*/
+			
+			.mui-bar-nav {
+				-webkit-box-shadow: none;
+				box-shadow: none;
+			}
+			
+			.calendar_button {
+				width: 1rem;
+				margin-top: -1.5rem;
+				height: 1.2rem;
+				/* float: left; */
+				color: rgba(255, 255, 255, 0.8) !important;
+				background-color: rgba(255, 255, 255, 0.001);
+			}
+			
+			.mui-content {
+				/*margin-top: 2rem;*/
+				background-color: rgba(255, 255, 255, 0.001);
+			}
+			
+			.mui-table-view {
+				background-color: rgba(255, 255, 255, 0.001);
+			}
+			
+			.mui-bar {
+				background-color: rgba(255, 255, 255, 0.001);
+			}
+			
+			.sm_title {
+				color: rgba(255, 255, 255, 0.8);
+			}
+			
+			.sm_s_photo {
+				width: 2rem;
+				height: 2rem;
+			}
+			
+			.mui-bar {
+				background: rgba(255, 255, 255, 0.001);
+				border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+			}
+			
+			input[type=search] {
+				/*padding: 0.4rem 0 !important;
+				margin-bottom: 0rem !important;*/
+			}
+			
+			.mui-search {
+				position: fixed;
+				z-index: 99;
+				top: 2rem;
+				width: 100%;
+				height: 2rem;
+				line-height: 2rem;
+				background: #39646A;
+			}
+			
+			.mui-table-view .mui-table-view-cell .sm_benyue {
+				float: right;
+				height: 1.5rem;
+				line-height: 1.5rem;
+				margin-right: 0.7rem;
+				color: rgba(255, 255, 255, 0.8);
+				font-size: 0.6rem;
+			}
+			
+			a#imageView {
+				color: rgba(255, 255, 255, 0.8);
+			}
+			
+			.mui-table-view .mui-table-view-cell .sm_benyue_jilu {
+				/*display: inline-block;
+				position: absolute;
+				right: 2rem;
+				top: 0.5rem;*/
+				font-size: 0.6rem;
+			}
+			
+			.mui-table-view>li:nth-child(1) {
+				background: rgba(255, 255, 255, 0.1);
+				height: 1rem !important;
+				line-height: 1rem;
+			}
+			
+			.mui-table-view:before {
+				background-color: none !important;
+			}
+			/*时间*/
+			
+			.sm_time {}
+			
+			.mui-table-view-cell:after,
+			.mui-table-view:after {
+				background-color: rgba(255, 255, 255, 0.001);
+			}
+			/*每个li*/
+			
+			.mui-content .mui-table-view-cell {
+				/*height: 2rem !important;*/
+				padding: 5px;
+				box-shadow: 0rem 0.01rem 0.1rem rgba(255, 255, 255, 0.1);
+				/*box-shadow: 0 0rem 0.01rem 0.05rem rgba(255,255,255,.1);*/
+				box-sizing: content-box;
+			}
+			/*2016  查看月记录*/
+			
+			.sm_time_tow {
+				height: 1.5rem !important;
+				background: rgba(0, 0, 0, 0.2);
+			}
+			
+			.mui-bar-nav {
+				background: #358B8A;
+			}
+			
+			.mui-search.mui-active:before {
+				/*top: 1.2rem;*/
+			}
+			
+			.mui-search.mui-active input[type=search] {
+				/* text-align: left; */
+			}
+			
+			.mui-search .sm_search {
+				display: inline-block;
+				background-image: url(../images/jilu/search@2x.png);
+				background-size: cover;
+				width: 80% !important;
+				background-color: rgba(255, 255, 255, 0.1);
+				margin-left: 1.8rem;
+				height: 1.5rem !important;
+			}
+			
+			.mui-search input[type=search] {
+				margin-bottom: 0;
+			}
+			
+			.mui-search.mui-active input[type=search] {
+				/* text-align: left; */
+			}
+			
+			.mui-search input[type=search] {
+				padding-left: 30px !important;
+			}
+			
+			.mui-icon-clear:before,
+			.mui-icon-close-filled:before {
+				margin-left: 0.3rem;
+			}
+			
+			.mui-content .mui-input-row .mui-input-clear~.mui-icon-clear {
+				top: 0.5rem;
+			}
+			
+			.mui-table-view-cell>.mui-slider-handle {
+				font-size: 0.6rem;
+				background-color: rgba(255, 255, 255, 0.001);
+			}
+			
+			.sm_box_left {
+				float: left;
+				height: 1.5rem;
+				margin-left: 0.7rem;
+			}
+			
+			.sm_box_left_text {
+				
+				line-height: 1.5rem;
+			}
+			
+			.sm_title_left {
+				float: left;
+				width: 30%;
+				height: 1rem;
+				line-height: 1rem;
+				margin-left: 0.7rem;
+				font-size: 0.6rem;
+			}
+			
+			.sm_title_right {
+				float: right;
+				width: 30%;
+				height: 1rem;
+				line-height: 1rem;
+				font-size: 0.6rem;
+			}
+			
+			.sm_benyue_color {
+				background: rgba(0, 0, 0, 0.2);
+				!important;
+			}
+			
+			.mui-search .mui-placeholder {
+				font-size: 0.6rem;
+				line-height: 2rem;
+			}
+			
+			.mui-bar-nav~.mui-content {
+				/*padding-top: 4rem;*/
+			}
+			.mui-content>.mui-table-view:first-child {
+ margin-top: 0px; 
+}
+			.mui-title>img {
+				vertical-align: middle;
+				height: 1rem;
+				line-height: 1rem;
+			}
+			
+			#rotote,
+			#rotote1 {
+				display: inline-block;
+				width: 0.3rem;
+			}
+			
+			.mui-popup-title {
+				font-size: 0.7rem;
+				color: #DB565D;
+			}
+			
+			.mui-popup-title {
+				font-size: 0.7rem;
+				color: #DB565D;
+			}
+			
+			.mui-popup-title {
+				font-size: 0.7rem;
+				color: #DB565D;
+			}
+			
+			.mui-popup-button:first-child,
+			.mui-popup-button:last-child {
+				border-radius: 0;
+			}
+			
+			.mui-popup-buttons {
+				height: 25px;
+				margin: 0.6rem;
+			}
+			
+			.mui-popup-button {
+				color: rgba(255, 255, 255, 0.8) !important;
+				background: #75BC56;
+				width: 3rem;
+				box-shadow: 0px 0px 8px rgba(255, 255, 255, 0.5);
+				font-size: 0.6rem;
+				margin: 0 1.5rem;
+				height: 1.2rem;
+				line-height: 1.2rem;
+			}
+			
+			.mui-popup-buttons {
+				height: 25px;
+				margin: 0.6rem;
+			}
+			
+			.mui-popup-title+.mui-popup-text {
+				color: rgba(255, 255, 255, 0.8);
+				font-size: 0.6rem;
+			}
+			
+			.mui-popup-backdrop {
+				background: rgba(255, 255, 255, .6);
+			}
+			
+			.mui-popup-inner:after {
+				background: url(../images/line@.2x_03.png) no-repeat;
+				background-size: cover;
+			}
+			
+			.mui-popup {
+				background: rgba(0, 0, 0, 0.6);
+				/*top: 70%;*/
+			}
+			
+			.mui-popup-button-bold {
+				margin-right: 1.5rem !important;
+				background: #D5B745 !important;
+				font-size: 0.6rem;
+			}
+			
+			.border_zero:after {
+				position: absolute;
+				top: -7px;
+				content: "";
+				right: 18px;
+				width: 0;
+				display: block;
+				height: 0;
+				border-left: 7px solid transparent;
+				border-right: 7px solid transparent;
+				border-bottom: 7px solid rgba(0, 0, 0, 0.4);
+			}
+			.mui-icon-back:before, .mui-icon-left-nav:before {
+content: '\e471';
+color: #fff;
+}
+		</style>
+	</head>
+
+	<body>
+
+		<div class="mui-popup-backdrop mui-active" style="display: none;"></div>
+		<div class="magin_mid">
+			<header class="mui-bar mui-bar-nav ">
+				<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			
+			<h1 class="mui-title">条码详情</h1>
+			</header>
+			<div class="mui-content">
+				
+				<ul id="OA_task_2" class="mui-table-view">
+
+					<div id="panel">
+
+						<li class="mui-table-view-cell " data-html="details.html">
+							<div class="mui-slider-right mui-disabled">
+								<a class="mui-btn mui-btn-red">删除</a>
+							</div>
+							<div class="mui-slider-handle mui-table">
+								<div class="sm_box_left">
+									
+									<div class="sm_box_left_text sm_time">KSDJFH5216328</div>
+								</div>
+								<div class="sm_benyue mui-navigate-right"><span></span></div>
+							</div>
+						</li>
+						<li class="mui-table-view-cell " data-html="details.html">
+							<div class="mui-slider-right mui-disabled">
+								<a class="mui-btn mui-btn-red">删除</a>
+							</div>
+							<div class="mui-slider-handle mui-table">
+								<div class="sm_box_left">
+									
+									<div class="sm_box_left_text sm_time">DKJF3287649823</div>
+								</div>
+								<div class="sm_benyue mui-navigate-right"><span></span></div>
+							</div>
+
+						</li>
+						
+
+					</div>
+
+				</ul>
+			</div>
+		</div>
+
+	</body>
+
+	<script src="../js/mui.min.js"></script>
+	<script src="../js/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="../js/public.js"></script>
+	<!--<script src="../js/BeatPicker.min.js"></script>
+		<script src="../js/prism.js"></script>-->
+	
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			//			本月的列表
+			$("#department_box").click(function() {
+				//				$("#panel").slideToggle("slow");
+				if($("#panel").css("display") == "block") {
+					$("#panel").css("display", "none");
+					$("#rotote").css('-webkit-transform', 'rotate(' + 90 + 'deg)');
+					return false;
+				} else {
+					$("#panel").css("display", "block");
+					$("#rotote").css('-webkit-transform', 'rotate(' + -360 + 'deg)');
+				}
+			});
+
+			//			带有时间的本月的列表
+			$(".sm_benyue_color").click(function() {
+				//				$("#panel").slideToggle("slow");
+				if($(".sm_toggle_hidden").css("display") == "none") {
+					$(".sm_toggle_hidden").css("display", "block");
+					$("#rotote1").css('-webkit-transform', 'rotate(' + 90 + 'deg)');
+					return false;
+				} else {
+					$(".sm_toggle_hidden").css("display", "none");
+					$("#rotote1").css('-webkit-transform', 'rotate(' + -360 + 'deg)');
+				}
+			});
+			//点击信息查看详情窗口
+			$("#OA_task_2").on("click", ".mui-table-view-cell", function() {
+				var htmlName = $(this).attr('data-html');
+				openWebview(htmlName)
+			})
+
+			//		
+			//					$(".calendar_button").click(function() {
+			//
+			//				if($("#jedatebox").css("display") == "block"){
+			//					 $(".mui-popup-backdrop").css("display", "block");
+			//					//$(".mui-popup-backdrop").addClass("mui-active");
+			//							return false;
+			//				}else{
+			//					 $(".mui-popup-backdrop").css("display", "none").removeClass("mui-active");;
+			//					
+			//				
+			//				}
+			//			});
+			//			
+
+		})
+	</script>
+	<script>
+		mui.init({
+			swipeBack: true //启用右滑关闭功能
+		});
+		mui.plusReady(function(){
+			var ws = plus.webview.currentWebview();
+			alert(ws.date)
+			
+		})
+		//		删除功能
+
+		(function($) {
+
+			var btnArray = ['确认', '取消'];
+			//第二个demo，向左拖拽后显示操作图标，释放后自动触发的业务逻辑
+			$('#OA_task_2').on('slideleft', '.mui-table-view-cell', function(event) {
+				var elem = this;
+				mui.confirm('提示：数据删除后无法恢复', '确认删除该条记录？', btnArray, function(e) {
+					if(e.index == 0) {
+						elem.parentNode.removeChild(elem);
+					} else {
+						setTimeout(function() {
+							$.swipeoutClose(elem);
+						}, 0);
+					}
+				}, "div");
+			});
+
+		})(mui);
+	</script>
+
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>我的</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" type="text/css" href="../../css/public.css" />
+		<link rel="stylesheet" href="../../css/mui.min.css">
+		<link rel="stylesheet" href="../../css/app.css" />
+		<script src="../../js/base.fontsize.js"></script>
+		<style>
+			html,
+			body {
+				font-size: 0.7rem;
+			}
+			
+			.mui-bar {
+				background: rgba(255, 255, 255, 0.001);
+				border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+			}
+			
+			.mui-title {
+				color: rgba(255, 255, 255, 0.8) !important;
+			}
+			
+			.mui-bar-nav {
+				color: rgba(255, 255, 255, 0.8) !important;
+				-webkit-box-shadow: none;
+				box-shadow: none;
+			}
+			
+			.sm_save {
+				float: right;
+				width: 2rem;
+				height: 2rem;
+				line-height: 2rem;
+			}
+			
+			.sm_s_photo {
+				width: 2rem;
+				height: 2rem;
+			}
+			
+			.title {
+				margin: 20px 15px 10px;
+				color: #6d6d72;
+				font-size: 15px;
+			}
+			
+			.mui-icon-back:before,
+			.mui-icon-left-nav:before {
+				content: '\e471';
+				color: rgba(255, 255, 255, 0.8);
+			}
+			
+			.near_in {
+				width: 95%;
+				margin: 0 auto;
+			}
+			
+			.mui-bar-nav~.mui-content {
+				padding-top: 3rem;
+			}
+			
+			.mui-content {
+				background-color: rgba(255, 255, 255, 0.001);
+				-webkit-overflow-scrolling: touch;
+			}
+			
+			input[type=text] {
+				color: rgba(255, 255, 255, 0.4);
+				border: 1px solid rgba(255, 255, 255, 0.1);
+				border-radius: 3px;
+				outline: 0;
+				background-color: rgba(255, 255, 255, 0.001);
+				box-shadow: 0px 1px 2px rgba(255, 255, 255, 0.1);
+				;
+				-webkit-appearance: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+
+			<h1 class="mui-title">修改电话</h1>
+			<span id="savePhone" class="sm_save">保存</span>
+		</header>
+		<div class="mui-content">
+			<div class="near_in">
+				<input type="text" id="phone_number" value="" />
+			</div>
+		</div>
+		</style>
+	</body>
+	<script src="../../js/mui.min.js"></script>
+	<script type="text/javascript" src="../../js/public.js"></script>
+	<script>
+	</script>
+
+</html>

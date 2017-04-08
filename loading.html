@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>loading</title>
+		<script>
+			window.loadingStartTime = new Date()
+		</script>
+		<script src="js/jquery-1.8.3.min.js"></script>
+	</head>
+	<style>
+		.loader {
+			text-align: center;
+		}
+		#progress{
+			position: absolute;
+			top: 30%;
+			left: 40%;
+		}
+		.loader>img:nth-child(2) {
+			position: absolute;
+			top: 48%;
+			left: 44%;
+			display: inline-block;
+			vertical-align: middle;
+			width: 2rem;
+			height: 2rem;
+		
+			border-radius: 50px;
+			-webkit-animation: loader 0.9s infinite alternate;
+			-moz-animation: loader 0.9s infinite alternate;
+		}
+		
+		.loader .loading_img {
+			width: 4rem;
+			height: 4rem;
+			position: absolute;
+			top: 40%;
+			left: 37%;
+		
+			-webkit-animation: loaded 0.9s infinite alternate;
+			-moz-animation: loaded 0.9s infinite alternate;
+			
+		}
+			@-webkit-keyframes loaded {
+			0% {
+				width: 2rem;
+				height: 2rem;
+				opacity: 0.9;
+				-webkit-transform: translateY(0);
+			}
+			100% {
+				width:4rem;
+				height: 4rem;
+				opacity: 0.1;
+				-webkit-transform: translateY(-21px);
+			}
+		}
+		@-webkit-keyframes loader {
+			0% {
+				width: 10px;
+				height: 10px;
+				opacity: 0.9;
+				-webkit-transform: translateY(0);
+			}
+			100% {
+				width: 24px;
+				height: 24px;
+				opacity: 0.1;
+				-webkit-transform: translateY(-21px);
+			}
+		}
+
+	
+	</style>
+
+	<body>
+		<div class="loading" id="loading">
+			<div class="progress" id="progress">0%</div>
+			<div class="loader">
+				<img class="loading_img" src="images/loding.png" alt="" />
+				<img src="images/loding_03.png" alt="" />
+				<!--<span></span>-->
+			</div>
+		</div>
+	</body>
+</html>
+<script>
+	var $loading = $('#loading')
+	var $progress = $('#progress')
+	var prg = 0
+
+	var timer = 0
+	var now = new Date() // 记录当前时间
+	var timeout = 5000 // 超时时间
+
+	window.onload = function() {
+		complete();
+	}
+
+	if(now - loadingStartTime > timeout) { // 超时
+		complete()
+	} else {
+		window.setTimeout(function() { // 未超时，则等待剩余时间
+			complete()
+		}, timeout - (now - loadingStartTime))
+	}
+
+	function complete() { // 封装完成进度功能
+		progress(100, [1, 5], 20, function() {
+			window.setTimeout(function() {
+				 $loading.hide();
+				 
+			}, 1000)
+		})
+
+	}
+
+	function progress(dist, speed, delay, callback) {
+		var _dist = random(dist)
+		var _delay = random(delay)
+		var _speed = random(speed)
+		window.clearTimeout(timer)
+		timer = window.setTimeout(function() {
+			if(prg + _speed >= _dist) {
+				window.clearTimeout(timer)
+				prg = _dist
+				callback && callback()
+			} else {
+				prg += _speed
+				progress(_dist, speed, delay, callback)
+			}
+
+			$progress.html(parseInt(prg) + '%')
+			// console.log(prg)
+		}, _delay)
+	}
+
+	function random(n) {
+		if(typeof n === 'object') {
+			var times = n[1] - n[0]
+			var offset = n[0]
+			return Math.random() * times + offset
+		} else {
+			return n
+		}
+	}
+</script>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>记录</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" type="text/css" href="../css/public.css" />
+		<link rel="stylesheet" href="../css/mui.min.css" />
+		<link rel="stylesheet" href="../css/app.css" />
+		<link rel="stylesheet" type="text/css" href=. "../css/jedate.css" />
+		<link rel="stylesheet" type="text/css" href="../css/style.css" />
+		<!--code_detail.html的css-->
+		<link rel="stylesheet" href="../css/code_detail.css" />
+		<script src="../js/base.fontsize.js"></script>
+		<script type="text/javascript" src="../js/jedate.js"></script>
+
+
+		<style>
+			
+		</style>
+	</head>
+
+	<body>
+
+		<div class="mui-popup-backdrop mui-active" style="display: none;"></div>
+		<div class="magin_mid">
+			<header class="mui-bar mui-bar-nav ">
+				<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			
+			<h1 class="mui-title">条码详情</h1>
+			</header>
+			
+			<div class="mui-content">
+				<div class="photo_xq"> <img class="sm_s_photo kq_tx" src="../images/wode/tx.png"/> <div class="maker_body"> 操作人</div> </div>
+				<ul id="OA_task_2" class="mui-table-view">
+
+					<div id="panel">
+						
+						<li class="mui-table-view-cell ">
+							<div class="mui-slider-right mui-disabled">
+								<a class="mui-btn mui-btn-red">删除</a>
+							</div>
+							<div class="mui-slider-handle mui-table">
+								<div class="sm_box_left">
+									
+									<div class="sm_box_left_text sm_time">ETR26354565F56</div>
+								</div>
+								<div class="sm_benyue mui-navigate-right"><span>03：43</span></div>
+							</div>
+						</li>
+						<li class="mui-table-view-cell ">
+							<div class="mui-slider-right mui-disabled">
+								<a class="mui-btn mui-btn-red">删除</a>
+							</div>
+							<div class="mui-slider-handle mui-table">
+								<div class="sm_box_left">
+									
+									<div class="sm_box_left_text sm_time">ETR26354565F56</div>
+								</div>
+								<div class="sm_benyue mui-navigate-right"><span>03：43</span></div>
+							</div>
+						</li>
+						
+
+					</div>
+
+				</ul>
+			</div>
+		</div>
+
+	</body>
+
+	<script src="../js/mui.min.js"></script>
+	<script src="../jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="../js/public.js"></script>
+	<!--<script src="../js/BeatPicker.min.js"></script>
+		<script src="../js/prism.js"></script>-->
+	
+		<script type="text/javascript">
+
+mui.init({
+	//监听Android手机的back、menu按键
+	keyEventBind: {
+		backbutton: false,  //Boolean(默认true)关闭back按键监听
+		menubutton: false   //Boolean(默认true)关闭menu按键监听
+	},
+})
+
+</script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			//			本月的列表
+			$("#department_box").click(function() {
+				//				$("#panel").slideToggle("slow");
+				if($("#panel").css("display") == "block") {
+					$("#panel").css("display", "none");
+					$("#rotote").css('-webkit-transform', 'rotate(' + 90 + 'deg)');
+					return false;
+				} else {
+					$("#panel").css("display", "block");
+					$("#rotote").css('-webkit-transform', 'rotate(' + -360 + 'deg)');
+				}
+			});
+
+			//			带有时间的本月的列表
+			$(".sm_benyue_color").click(function() {
+				//				$("#panel").slideToggle("slow");
+				if($(".sm_toggle_hidden").css("display") == "none") {
+					$(".sm_toggle_hidden").css("display", "block");
+					$("#rotote1").css('-webkit-transform', 'rotate(' + 90 + 'deg)');
+					return false;
+				} else {
+					$(".sm_toggle_hidden").css("display", "none");
+					$("#rotote1").css('-webkit-transform', 'rotate(' + -360 + 'deg)');
+				}
+			});
+
+		})
+	</script>
+	<script>
+		mui.init({
+			swipeBack: true //启用右滑关闭功能
+		});
+		mui.plusReady(function(){
+			var ws = plus.webview.currentWebview();
+			console.log(ws.date)
+			
+		})
+		//		删除功能
+
+		(function($) {
+
+			var btnArray = ['确认', '取消'];
+			//第二个demo，向左拖拽后显示操作图标，释放后自动触发的业务逻辑
+			$('#OA_task_2').on('slideleft', '.mui-table-view-cell', function(event) {
+				var elem = this;
+				mui.confirm('提示：数据删除后无法恢复', '确认删除该条记录？', btnArray, function(e) {
+					if(e.index == 0) {
+						elem.parentNode.removeChild(elem);
+					} else {
+						setTimeout(function() {
+							$.swipeoutClose(elem);
+						}, 0);
+					}
+				}, "div");
+			});
+
+		})(mui);
+	</script>
+<script type="text/javascript">
+		//jeDate.skin('gray');
+		jeDate({
+			dateCell: "#indate", //isinitVal:true,
+			format: "YYYY-MM",
+			isTime: false, //isClear:false,
+			minDate: "2015-10-19 00:00:00",
+			maxDate: "2016-11-8 00:00:00"
+		})
+		jeDate({
+			dateCell: "#dateinfo",
+			format: "YYYY年MM月DD日 hh:mm:ss",
+			isinitVal: true,
+			isTime: true, //isClear:false,
+			minDate: "2014-09-19 00:00:00",
+			okfun: function(val) {
+				alert(val)
+			}
+		})
+	</script>
+</html>

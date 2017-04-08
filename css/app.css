@@ -1,0 +1,9 @@
+ /*导航栏颜色*/
+.white{
+	background-color: white;
+}
+.nav-red{
+	background-color: #b60915;
+	box-shadow: none;
+	border: none;
+}

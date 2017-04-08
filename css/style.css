@@ -1,0 +1,335 @@
+/*首页控制器图片替换*/
+
+.mui-icon-home:before,
+.mui-icon-email:before,
+.mui-icon-contact:before,
+.mui-icon-gear:before {
+	content: "";
+	width: 0.7rem !important;
+	height: 0.7rem !important;
+	display: block;
+}
+
+
+/* ========== */
+
+
+/* 设置滚动条的样式 */
+
+
+/* ========== */
+
+::-webkit-scrollbar {
+	width: 4px;
+}
+
+
+/* 滚动槽 */
+
+::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+	border-radius: 10px;
+}
+
+
+/* 滚动条滑块 */
+
+::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	background: rgba(0, 0, 0, 0.1);
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+	background: rgba(255, 0, 0, 0.4);
+}
+
+
+/* ========== */
+
+
+/* = 首页样式 = */
+
+
+/* ========== */
+
+.controller {
+	width: 100%;
+	/*height: 1.25rem !important;
+	line-height: 1.25rem !important;*/
+	background: url(../images/juxingTab@2x.png) no-repeat;
+	background-size: cover;
+}
+
+.mui-icon-home:before {
+	background: url(../images/tabbar/saoma@2x.png) no-repeat;
+	background-size: cover;
+}
+
+.mui-icon-email:before {
+	background: url(../images/tabbar/piliang@2x.png) no-repeat;
+	background-size: cover;
+}
+
+.mui-icon-contact:before {
+	background: url(../images/tabbar/jilu@2x.png) no-repeat;
+	background-size: cover;
+}
+
+.mui-icon-gear:before {
+	background: url(../images/tabbar/wode@2x.png) no-repeat;
+	background-size: cover;
+}
+
+.controller>a>span:nth-child(1) {
+	width: 0.7rem !important;
+	height: 0.7rem !important;
+}
+
+.controller>a>span:nth-child(2) {
+	font-size: 0.7rem;
+}
+
+.mui-bar-tab .mui-tab-item.mui-active {
+	color: rgba(255, 255, 255, 0.8) !important;
+}
+
+
+/*加载动画*/
+
+.loading,
+.loading_load {
+	width: 100%;
+	height: 100%;
+	left: 0;
+}
+
+
+/*.loading .img_gif, .loading_load .img_gif {
+background: url("../im") no-repeat 0px 0px;
+background-size: cover;
+}*/
+
+
+/*登陆界面*/
+
+.dl_body {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+
+/*.load_box {
+	position: absolute;
+	width: 100%;
+	top: 50%;
+	/*height: 5rem;*/
+
+overflow: hidden;
+margin-top: -2.5rem;
+
+}
+*/ .dl_box {
+	width: 85%;
+}
+.zck_box {
+	margin-top: 25%;
+}
+.yzm_a {
+	right: -5px;
+	top: 7px;
+}
+.btn_dl {
+	background: none;
+	color: rgba(255, 255, 255, 0.8);
+	text-shadow: 0px 0px 5px rgba(255, 255, 255, 0.6), 0px 0px 2px rgba(255, 255, 255, 0.8);
+	font-size: 0.8rem;
+}
+.sj_png {
+	width: 16px;
+	margin-left: 3%;
+	margin-top: -6px;
+}
+.usd,
+.pwd,
+.yzm {
+	width: 100%;
+}
+.zc_mm {
+	margin-top: 10px;
+}
+.zc_mm li {
+	width: 48%;
+}
+.zc_mm li:last-child {
+	text-indent: 5px;
+}
+
+/*.zc_mm li:last-child {
+	margin-left: 2%;
+}*/
+input[type="text"] {
+	color: rgba(255, 255, 255, 0.8)
+}
+input[type="password"] {
+	color: rgba(255, 255, 255, 0.8)
+}
+input[type="text"],
+input[type="password"] {
+	font-size: 0.8rem;
+}
+
+/*登陆框*/
+.logo_dl2x {
+	margin-bottom: 0;
+}
+.dl_box {
+	height:4.5rem;
+}
+.zck_box {
+	height: 2rem;
+}
+.usd_box,
+.psd_box,
+.yzm_box,
+.zc_box{
+	width: 80%;
+	height: 2rem;
+	margin: 0.5rem auto;
+	border-radius: 0.5rem;
+	background: rgba(255, 255, 255, 0.1);
+}
+.magin_mid {
+	/*margin-top: -220px;*/
+}
+.sj_png {
+	width: 25px;
+	margin-left: 3%;
+	margin-top: -6px;
+}
+.usd,
+.pwd,
+.yzm{
+	height: 2rem;
+	line-height: 2rem;
+	text-align: center;
+	font-size: 0.7rem;
+}
+.btn_dl {
+width: 80%;
+	height: 2rem;
+	margin: 0.5rem 1.6rem ;
+	border-radius: 0.5rem!important;
+	background: rgba(255, 255, 255, 0.1);
+	color: rgba(255, 255, 255, 0.8) !important;
+}
+.btn_dl_bg{
+	width: 80%;
+	height: 2rem;
+	margin: 0.5rem 1.6rem ;
+	border-radius: 0.5rem!important;
+	background: #4C93B3;
+	font-size: 0.8rem;
+	color: rgba(255, 255, 255, 0.8) !important;
+}
+.btn_dled_bg{
+	width: 80%;
+	height: 2rem;
+	font-size: 0.8rem;
+	margin: 0.5rem 1.6rem ;
+	border-radius: 0.5rem!important;
+	background: #4C93B3;
+	color: rgba(0,0,0,0.4) !important;
+}
+.zc_mm li {
+	font-size: 0.8rem;
+
+	float: left;
+	width:46%;
+	height: 1rem;
+	line-height: 1rem;
+	
+}
+.zc_mm {
+	width: 100%;
+	height: 2rem;
+
+		
+}
+.zc_mm>li>a {
+	text-shadow: 0 0 4px rgba(255, 255, 255, .6);
+	color: rgba(255, 255, 255, 0.4) !important;
+}
+.zc_mm>li:nth-child(2) {
+	padding-left: 0.5rem;
+	}
+.zc_mm>li:nth-child(1) {
+	border-right: 1px solid rgba(255, 255, 255, .6);
+	text-align: right;
+	padding-right: 0.7rem;
+}
+
+.prompt,
+.cancel,
+.determine {
+	font-family: '华文细黑';
+	position: absolute;
+	background-color: transparent;
+	color: #0F80FB;
+	font-weight: 700;
+	border-top: 1px solid rgba(221, 221, 221, 1) !important;
+	height: 1.5rem;
+	line-height: 1.5rem;
+	font-size: 0.75rem;
+}
+.prompt {
+	width: 100%;
+	left: 0;
+}
+.cancel,
+.determine {
+	width: 50%;
+}
+.cancel {
+	left: 0;
+}
+.determine {
+	right: 0;
+	border-left: 1px solid rgba(221, 221, 221, 1) !important;
+}
+
+}
+.dlfs {
+	width: 80%;
+	left: 50%;
+	margin-left: -40%;
+	bottom: 0.5rem;
+}
+.dlfs>div {
+	width: 33.3%;
+	font-size: 0.65rem;
+}
+.magin_mid {
+	width: 100%;
+	height: 100%;
+	/*overflow-x:hidden;
+	overflow-y:scroll;*/
+	/*position: absolute;
+	top: 42%;*/
+}
+.dlfs>div img {
+	width: 1rem;
+}
+.logo_dl2x {
+	width: 26%;
+	margin: 4rem 0 0 6rem;
+}
+.tit_ul li,
+.sj_ul li {
+	padding: 0.15rem 0;
+}
+
+#forms{
+	margin-top: 7rem;
+/*login end*/

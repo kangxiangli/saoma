@@ -1,0 +1,15 @@
+	
+			#bcid {
+				height: 440px !important;
+				width: 100% !important;
+				  /*background: url("../images/beijing.png") no-repeat;
+    		background-size: cover;*/
+    			background-image: -webkit-linear-gradient(to bottom, #264473 0%, #2C3970 20%, #30306B 40%, #2F3068 60%, #2C3061 80%, #2F3069 100%);
+			background-image: -moz-linear-gradient(to bottom, #264473 0%, #2C3970 20%, #30306B 40%, #2F3068 60%, #2C3061 80%, #2F3069 100%);
+			background-image: -o-linear-gradient(to bottom, #264473 0%, #2C3970 20%, #30306B 40%, #2F3068 60%, #2C3061 80%, #2F3069 100%);
+			background-image: linear-gradient(to bottom, #264473 0%, #2C3970 20%, #30306B 40%, #2F3068 60%, #2C3061 80%, #2F3069 100%);
+			}
+			.mui-table-view:after {
+				background-color: rgba(255, 255, 255, 0.3);
+			}
+			

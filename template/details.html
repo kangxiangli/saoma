@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>记录详情</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<link rel="stylesheet" href="../css/app.css" />
+		<link rel="stylesheet" type="text/css" href="../css/public.css" />
+		<!--details.html的css-->
+		<link rel="stylesheet" href="../css/details.css" />
+	</head>
+	<script src="../js/base.fontsize.js"></script>
+
+	<body>
+
+		<header class="mui-bar mui-bar-nav sm_head_nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">记录详情</h1>
+		</header>
+
+		<div class="sm_content">
+			
+			<div class="dk_time" id="dk_time">
+				<div class="header_img_box ">
+					<img class="header_img" src="../images/wode/tx.png" alt="头像" />
+				</div>
+				<p class="go_off_work">操作人</p>
+			<!--	<p class="dp"><span>187</span>条信息</p>-->
+				<p class="num"> <img src="../images/jilu/time@2x.png" alt="" /> 记录时间 <span>2017-01-15</span><span>15:24 </span></p>
+				<p class="num qrcode_detail"> <img src="../images/jilu/list@2x.png" alt="" /> 条码详情<span>187条</span>
+					<img class="sm_jiantou" src="../images/wode/jiantou@2x.png" alt="" />
+				</p>
+				<div class="btn_qd">
+					 <img class="sm_clear" src="../images/jilu/delete@2x.png" alt="" />
+					<img class="sm_add" src="../images/jilu/uploading@2x.png"/>
+				</div>
+			</div>
+
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript" src="../js/update.js"></script>
+		<script src="../js/jquery-1.8.3.min.js"></script>
+		<script type="text/javascript" src="../js/jedate.js"></script>
+		<script type="text/javascript" src="../js/public.js"></script>
+		<script type="text/javascript" src="wode/js/setting.js"></script>
+			<script type="text/javascript">
+
+mui.init({
+	//监听Android手机的back、menu按键
+	keyEventBind: {
+		backbutton: false,  //Boolean(默认true)关闭back按键监听
+		menubutton: false   //Boolean(默认true)关闭menu按键监听
+	},
+})
+
+</script>
+		<script type="text/javascript">
+	
+			mui.plusReady(function() {
+				$(".dk_time").on("click", ".qrcode_detail",function() {
+			
+			openWebview("code_detail.html")
+		})
+			})
+
+			//jeDate.skin('gray');
+			jeDate({
+				dateCell: "#indate", //isinitVal:true,
+				format: "YYYY-MM",
+				isTime: false, //isClear:false,
+				minDate: "2015-10-19 00:00:00",
+				maxDate: "2016-11-8 00:00:00"
+			})
+			jeDate({
+				dateCell: "#dateinfo",
+				format: "YYYY年MM月DD日 hh:mm:ss",
+				isinitVal: true,
+				isTime: true, //isClear:false,
+				minDate: "2014-09-19 00:00:00",
+				okfun: function(val) {
+					//alert(val)
+				}
+			})
+		</script>
+		</script>
+
+	</body>
+
+</html>

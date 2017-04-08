@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>小蝶扫码</title>
+		<link rel="stylesheet" href="css/public.css" />
+		<link rel="stylesheet" href="css/mui.min.css" />
+		<link rel="stylesheet" href="css/app.css" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<script src="js/base.fontsize.js"></script>
+		<style>
+			.mui-icon {
+				opacity: .5;
+			}
+			
+			.mui-active .mui-icon {
+				opacity: 1;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<nav class="mui-bar mui-bar-tab controller">
+			<a id="defaultTab" href="javascript:void(0);" data-href="template/barcode.html" class="mui-tab-item mui-active item" data-index="0">
+				<span class="mui-icon mui-icon-home"></span>
+				<span class="mui-tab-label">二维码</span>
+			</a>
+			<a class="mui-tab-item" href="javascript:void(0);" data-href="template/tarCode.html" data-index="1">
+				<span class="mui-icon mui-icon-email"></span>
+				<span class="mui-tab-label">条形码</span>
+			</a>
+			<a class="mui-tab-item" href="javascript:void(0);" data-href="template/remeber.html" data-index="2">
+				<span class="mui-icon mui-icon-contact"></span>
+				<span class="mui-tab-label">记录</span>
+			</a>
+			<a class="mui-tab-item" href="javascript:void(0);" data-href="template/wode/wode.html" data-index="3">
+				<span class="mui-icon mui-icon-gear"></span>
+				<span class="mui-tab-label">我的</span>
+			</a>
+		</nav>
+		<script src="js/mui.min.js"></script>
+		<script src="js/global.js"></script>
+		<script type="text/javascript" src="js/public.js"></script>
+		<script type="text/javascript">
+			//底部导航栏y颜色
+			$(".controller>a").click(function() {
+				$(this).css({
+					"opacity": "1",
+					'color': 'rgba(255,255,255,1)'
+				});
+				$(this).siblings().css({
+					"opacity": "0.55",
+					'color': 'rgba(255,255,255,0.55)'
+				});
+			});
+		</script>
+		<script type="text/javascript" charset="utf-8">
+			var curView = null;
+			var curTabUrl = null;
+			var subpages = ['template/barcode.html', 'template/tarCode.html', 'template/remeber.html', 'template/wode/wode.html'];
+
+			//创建子页面，首个选项卡页面显示，其它均隐藏；
+			mui.plusReady(function() {
+				//启动时的轮播页
+				//launchScreen();
+				//设置默认头像 将头像路径转成绝对路径
+				var url = "images/wode/tx.png";
+				var path = plus.io.convertLocalFileSystemURL(url);
+				MemberPhoto = path;
+				window.localStorage.setItem("defaultMemberPhoto", MemberPhoto)
+
+				//默认打开首页
+				curTabUrl = subpages[0];
+				curView = openWebviews(curTabUrl);
+
+				//选项卡点击事件
+				mui('.mui-bar-tab').on('tap', 'a', function(e) {
+					var targetTab = this.getAttribute('data-href');
+					if(targetTab == curTabUrl) {
+						return;
+					};
+					curTabUrl = targetTab;
+					if(curView) {
+						var orgView = curView;
+						//mui.closeAll(orgView);
+						var all = plus.webview.all();
+						for(var i = 0, len = all.length; i < len; i++) {
+
+							if(all[i].id !== plus.runtime.appid) {
+								all[i].close();
+							}
+						}
+						curView = openchildWin(targetTab);
+					}
+				});
+
+			});
+			// 设置启动时的轮播页
+			//			function launchScreen() {
+			//				//读取本地存储，检查是否为首次启动
+			//				var showGuide = plus.storage.getItem("lauchFlag");
+			//				if(showGuide) {
+			//					//有值，说明已经显示过了，无需显示；
+			//					//关闭splash页面；
+			//					plus.navigator.closeSplashscreen();
+			//					plus.navigator.setFullscreen(false);
+			//				} else {
+			//					//显示启动导航
+			//					mui.openWindow({
+			//						id: 'guide',
+			//						url: 'template/guide.html',
+			//						show: {
+			//							aniShow: 'none'
+			//						},
+			//						waiting: {
+			//							autoShow: false
+			//						}
+			//					});
+			//				}
+			//			}
+
+			//  ========== 
+			//  = websocket = 
+			//  ========== 
+
+			var wsUrl = "ws://0-fashion.imwork.net:8810";
+			var Phone = localStorage.uerd;
+			console.log(Phone );
+			var websocket = new MySocket(wsUrl);
+			websocket.open();
+
+			function MySocket(wsUrl) {
+				var me = this;
+				me.socket = null;
+				var strEnd = "\r\n";;
+				me.utils = {
+					//	重新连接  Uuid（上次连接成功的Uuid）
+					lastLink: function() {
+						var data = {};
+						data.Uuid = window.localStorage.getItem("PUuid");
+						data.UserAgent = 1;
+						data.Phone = localStorage.uerd;
+						//						console.log(data.Phone)
+						me.socket.send("Link " + JSON.stringify(data) + strEnd);
+						return data;
+
+					},
+					//Post（发送数据，目前只支持，字母+数字）
+					Post: function(result,flag) {
+						
+							result = result.split(",");
+							if(window.localStorage) {
+								var Pdata = JSON.stringify({
+											AutoEnter: flag,
+											Uuid: window.localStorage.getItem("Uuid"),
+											Message: result,
+											
+										})
+
+							me.socket.send("Post " + Pdata + strEnd)
+						} else {
+							mui.toast("未获取到uuid")
+						}
+					},
+					//LoginToPc（扫描PC登录二维码成功后发送，推送 用户头像和昵称到 PC）
+					Login: function() {
+						var Ldata = JSON.stringify({
+							Uuid: window.localStorage.getItem("Uuid")
+						});
+
+						me.socket.send("LoginToPc " + Ldata + strEnd);
+					},
+					//Bound （确认登录）
+					Bound: function() {
+						if(window.localStorage) {
+							var Bdata = JSON.stringify({
+								PUuid: window.localStorage.getItem("PUuid"),
+								Uuid: window.localStorage.getItem("Uuid"),
+							});
+							me.socket.send("Bound " + Bdata + strEnd);
+						} else {
+							mui.toast("未获取到uuid")
+						}
+					},
+					//Exit 取消登录  退出登录
+					Exit: function() {
+						var Edata = JSON.stringify({
+							Uuid: window.localStorage.getItem("Uuid")
+						});
+						me.socket.send("Exit " + Edata + strEnd);
+					}
+				};
+				me.open = function() {
+					var Socket = new WebSocket(wsUrl);
+					Socket.onopen = me.onopen;
+					Socket.onmessage = me.onmessage;
+					Socket.onclose = me.onclose;
+					Socket.onerror = me.onerror;
+					me.socket = Socket;
+				};
+				me.onopen = function() {
+					me.utils.lastLink();
+				};
+				me.onmessage = function() {
+					console.log(JSON.stringify(event.data))
+					//Other是一堆字符串  需要JSON.parse
+					var data = JSON.parse(event.data);
+					var Key = JSON.parse(data.Other).Key;
+					var RT = JSON.stringify(data.ResultType);
+
+					switch(Key) {
+						case "Link":
+							{
+								if(RT == 3) {
+									window.localStorage.setItem("PUuid", data.Data);
+								};
+							}
+							break;
+						case "LoginToPc":
+							{
+								if(RT == 3) {
+									loginSucess();
+								} else {
+									showMessageHasDuration(data.Message);
+									var m = plus.webview.getWebviewById("template/barcode.html");
+									m.evalJS("startScan()");
+								}
+							}
+							break;
+						case "Bound":
+							{
+								if(RT == 3) {
+									//openWebview("index.html");
+									showMessageHasDuration("登录成功");
+								} else {
+									showMessageHasDuration(data.Message);
+									var m = plus.webview.getWebviewById("template/barcode.html");
+									m.evalJS("startScan()");
+								}
+							}
+							break;
+						case "Rest":
+							{
+								if(RT == 3) {
+									var rdata = JSON.parse(data.Data);
+
+									localStorage.Uuid = rdata.Uuid;
+								};
+							}
+							break;
+						case "Post":
+							{
+								showMessageHasDuration(data.Message);
+							}
+							break;
+						case "Exit":
+							{
+								showMessageHasDuration(data.Message);
+							}
+							break;
+					}
+
+				};;
+				me.onclose = function() {
+					//关闭后重新连接websocket
+					console.log("websocket  close")
+					setTimeout(websocket.open, 3000);
+				};
+				me.onerror = function() {
+
+				}
+				return me;
+			}
+
+			function showMessageHasDuration(message) {
+				mui.toast(message, { duration: 1000 });
+			}
+			//登录成功后打开登录页面
+			function loginSucess() {
+
+				openloginWin("login/login.html")
+				//var h = plus.webview.getWebviewById("side");
+				//var m = plus.webview.getWebviewById("template/barcode.html");
+				//plus.webview.close(m);
+				//m.evalJS("closeScan()")
+			}
+
+			//open childWin
+			function openloginWin(page, extras) {
+				var subStyles = {
+					top: "0px",
+					bottom: "0px",
+					background: "transparent"
+				};
+				var nwaiting = plus.nativeUI.showWaiting();
+				var w = plus.webview.open(page, page, subStyles, extras);
+				w.addEventListener('loaded', function() {
+					nwaiting.close();
+				});
+				w.addEventListener("loading", function() {});
+				return w;
+
+			};
+
+			mui.plusReady(function() {
+				//首页返回键处理
+				//处理逻辑：1秒内，连续两次按返回键，则退出应用；
+				var first = null;
+				plus.key.addEventListener('backbutton', function() {
+					//首次按键，提示‘再按一次退出应用’
+					if(!first) {
+						first = new Date().getTime();
+						mui.toast('再按一次退出应用');
+						setTimeout(function() {
+							first = null;
+						}, 1000);
+					} else {
+						if(new Date().getTime() - first < 1000) {
+							plus.runtime.quit();
+						}
+					}
+				}, false);
+			});
+		</script>
+
+	</body>
+
+</html>

@@ -1,0 +1,94 @@
+body {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+.mui-content .sm_barcode .wmbg {
+	width: 100%;
+	position: fixed;
+	top: -0.2rem;
+	/*box-shadow: 0px 0px 10px rgba(0,0,0,0.8)
+			 inset,0px 0px 5px rgba(200,200,200,0.5);*/
+	/*background: url(../images/ewmK@2x.png)no-repeat;
+			background-size: cover;*/
+	/*border:4px solid rgba(255,255,255,.8);*/
+}
+
+.mui-bar-nav {
+	height: 2rem;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+	background: #358B8A;
+	box-shadow: none;
+}
+
+.mui-title img {
+	height: 1.5rem;
+	line-height: 1.5rem;
+}
+
+.mui-bar-nav .sm_s_photo {
+	border: 2px solid rgba(255, 255, 255, 0.3);
+	margin-top: 0.2rem;
+	width: 1.5rem;
+	border-radius: 50%;
+	height: 1.5rem;
+	float: left;
+	margin-left: 0.5rem;
+}
+
+.sm_nav {
+	box-shadow: none;
+	background: rgba(255, 255, 255, 0.001);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sm_nav {
+	background: #358B8A;
+}
+
+.mui-content {
+	overflow: hidden;
+}
+
+.magin_mid {
+	overflow-y: hidden;
+}
+
+.mui-bar-nav>img:nth-child(2) {
+	margin-left: -2rem;
+	height: 1.5rem;
+	margin-top: 0.3rem;
+	line-height: 2rem;
+}
+
+.fbt {
+	position: absolute;
+	right: 0.5rem;
+	top: 30%;
+	z-index: 9999;
+	width: 1rem !important;
+}
+
+.mui-content .sm_code_img {
+	height: 44.5% !important;
+	width: 81% !important;
+	z-index: 99;
+	position: absolute;
+	top: 16.5%;
+	left: 9%;
+}
+
+.mui-content .sm_code_txt {
+	
+font-size: 0.6rem;
+letter-spacing:2px;
+width: 61%;
+	z-index: 99;
+	font-weight: 700;
+	text-align: center;
+	color: rgba(255,255,255,0.4);
+	position: absolute;
+	top: 60%;
+	left: 18.9%;
+}

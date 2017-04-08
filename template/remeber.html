@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>记录</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" type="text/css" href="../css/public.css" />
+		<link rel="stylesheet" href="../css/mui.min.css" />
+		<link rel="stylesheet" href="../css/app.css" />
+		<link rel="stylesheet" type="text/css" href=. "../css/jedate.css" />
+		<link rel="stylesheet" type="text/css" href="../css/style.css" />
+		<script src="../js/base.fontsize.js"></script>
+		<style>
+			html,
+			body {
+				color: rgba(255, 255, 255, 0.8);
+				font-size: 0.6rem;
+			}
+			
+			.mui-table-view:before {
+				0px;
+			}
+			
+			.mui-table-view:after {
+				0px;
+			}
+			
+			.mui-search .mui-placeholder .mui-icon,
+			.mui-search .mui-placeholder,
+			.mui-input-row .mui-input-clear~.mui-icon-clear {
+				color: rgba(255, 255, 255, 0.8) !important;
+				/*font-size: 0.7rem;*/
+			}
+			
+			input[type=text] {
+				width: 40%;
+				float: left;
+				height: 3rem;
+				color: rgba(255, 255, 255, 0.8) !important;
+				margin-left: 45%;
+				background-color: rgba(255, 255, 255, 0.001);
+			}
+			/*contact.html*/
+			
+			.mui-bar-nav {
+				-webkit-box-shadow: none;
+				box-shadow: none;
+			}
+			
+			.calendar_button {
+				margin-top: -1.6rem;
+				height: 1.7rem;
+				/* float: left; */
+				color: rgba(255, 255, 255, 0.8) !important;
+				background-color: rgba(255, 255, 255, 0.001);
+			}
+			
+			.mui-content {
+				/*margin-top: 2rem;*/
+				background-color: rgba(255, 255, 255, 0.001);
+			}
+			
+			.mui-table-view {
+				background-color: rgba(255, 255, 255, 0.001);
+			}
+			
+			.mui-bar {
+				background-color: rgba(255, 255, 255, 0.001);
+			}
+			
+			.sm_title {
+				color: rgba(255, 255, 255, 0.8);
+			}
+			/*.sm_s_photo {
+				width: 2rem;
+				height: 2rem;
+			}
+			*/
+			
+			.sm_s_photo {
+				border: 2px solid rgba(255, 255, 255, 0.3);
+				margin-top: 0.2rem;
+				width: 1.6rem;
+				height: 1.6rem;
+			}
+			
+			.mui-bar {
+				background: rgba(255, 255, 255, 0.001);
+				border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+			}
+			
+			input[type=search] {
+				/*padding: 0.4rem 0 !important;
+				margin-bottom: 0rem !important;*/
+			}
+			
+			.mui-search {
+				/*position: fixed;
+				z-index: 99;
+				top: 2rem;*/
+				width: 100%;
+				margin-bottom: 0.1rem;
+				height: 2rem;
+				line-height: 2rem;
+				
+			}
+			
+			.mui-table-view .mui-table-view-cell .sm_benyue {
+				float: right;
+				height: 1.5rem;
+				line-height: 1.5rem;
+				margin-right: 0.7rem;
+				color: rgba(255, 255, 255, 0.8);
+				font-size: 0.6rem;
+			}
+			
+			
+			
+			.mui-table-view .mui-table-view-cell .sm_benyue_jilu {
+				/*display: inline-block;
+				position: absolute;
+				right: 2rem;
+				top: 0.5rem;*/
+				font-size: 0.6rem;
+			}
+			
+			.mui-table-view>li:nth-child(1) {
+				background: rgba(255, 255, 255, 0.1);
+				height: 1rem !important;
+				line-height: 1rem;
+			}
+			
+			.mui-table-view:before {
+				background-color: none !important;
+			}
+			/*时间*/
+			
+			.sm_time {
+				
+			}
+			
+			.mui-table-view-cell:after,
+			.mui-table-view:after {
+				background-color: rgba(255, 255, 255, 0.001);
+			}
+			/*每个li*/
+			/*.mui-slider-right {
+				height: 2rem !important;
+			}*/
+			
+			.mui-content .mui-table-view-cell {
+				/*height: 2rem !important;*/
+				padding: 5px;
+				border-bottom: 1px solid rgba(255, 255, 255, .1);
+				/*	box-shadow: 0rem 0.01rem 0.1rem rgba(255, 255, 255, 0.1);*/
+				/*box-shadow: 0 0rem 0.01rem 0.05rem rgba(255,255,255,.1);*/
+				box-sizing: content-box;
+			}
+			/*2016  查看月记录*/
+			
+			.sm_time_tow {
+				height: 1.5rem !important;
+				background: rgba(0, 0, 0, 0.2);
+			}
+			
+			.mui-bar-nav {
+				background: #358B8A;
+			}
+			
+			.mui-search.mui-active:before {
+				/*top: 1.2rem;*/
+			}
+			
+			.mui-search.mui-active input[type=search] {
+				/* text-align: left; */
+			}
+			
+			.mui-search .sm_search {
+				/*display: inline-block;
+				background-image: url(../images/jilu/search@2x.png);
+				background-size: cover;
+				width: 100% !important;
+				background-color: rgba(255, 255, 255, 0.1);*/
+				/*margin-left: 1.8rem;*/
+				/*height: 1.5rem !important;*/
+			}
+			
+			.mui-search input[type=search] {
+				margin-bottom: 0;
+			}
+			
+			.mui-search.mui-active input[type=search] {
+				/* text-align: left; */
+			}
+			
+			.mui-search input[type=search] {
+				background-color: rgba(0, 0, 0,0.001);
+				padding-left: 30px !important;
+			}
+			
+			.mui-icon-clear:before,
+			.mui-icon-close-filled:before {
+				margin-left: 0.3rem;
+			}
+			
+			.mui-content .mui-input-row .mui-input-clear~.mui-icon-clear {
+				top: 0.5rem;
+			}
+			
+			.mui-table-view-cell>.mui-slider-handle {
+				font-size: 0.6rem;
+				background-color: rgba(255, 255, 255, 0.001);
+			}
+			
+			.sm_box_left {
+				float: left;
+				height: 1.5rem;
+				line-height: 1.5rem;
+				margin-left: 0.7rem;
+			}
+			
+		
+			.sm_title_left {
+				float: left;
+				width: 30%;
+				height: 1rem;
+				line-height: 1rem;
+				margin-left: 0.7rem;
+				font-size: 0.6rem;
+			}
+			
+			.sm_title_right {
+				float: right;
+				width: 30%;
+				height: 1rem;
+				line-height: 1rem;
+				
+				font-size: 0.6rem;
+			}
+			.sm_title_right img{
+				margin-left: 0.5rem;
+			}
+			.sm_benyue_color {
+				background: rgba(0, 0, 0, 0.2);
+				!important;
+			}
+			
+			.mui-search .mui-placeholder {
+				font-size: 0.6rem;
+				line-height: 2rem;
+			}
+			
+			.mui-bar-nav~.mui-content {
+				padding-top: 2rem;
+			}
+			
+			.mui-title>img {
+				vertical-align: middle;
+				height: 1rem;
+				line-height: 1rem;
+			}
+			
+			#rotote,
+			#rotote1 {
+				display: inline-block;
+				width: 0.3rem;
+			}
+			
+			.mui-popup-title {
+				font-size: 0.7rem;
+				color: #DB565D;
+			}
+			
+			.mui-popup-title {
+				font-size: 0.7rem;
+				color: #DB565D;
+			}
+			
+			.mui-popup-title {
+				font-family: "微软雅黑";
+				font-weight: 700;
+				font-size: 0.7rem;
+				color: rgba(255, 255, 255, 0.8);
+			}
+			
+			.mui-popup-button:first-child,
+			.mui-popup-button:last-child {
+				border-radius: 0;
+			}
+			
+			.mui-popup-buttons {
+				height: 25px;
+				margin: 0.6rem;
+			}
+			
+			.mui-popup-button {
+				color: #43A278 !important;
+				background: #354051;
+				font-size: 0.8rem;
+				/* margin: 0 1.5rem; */
+				height: 1.2rem;
+				line-height: 1.2rem;
+			}
+			
+			.mui-popup-buttons {
+				color: #43A278 !important;
+				background: #354051;
+				font-size: 0.8rem;
+				/* margin: 0 1.5rem; */
+				height: 1.2rem;
+				line-height: 1.2rem;
+			}
+			
+			.mui-popup-title+.mui-popup-text {
+				color: rgba(255, 255, 255, 0.2);
+				font-size: 0.6rem;
+			}
+			
+			.mui-popup-backdrop {
+				background: rgba(0,0,0,.6);
+			}
+			
+			.mui-popup-inner:after {
+				background: url(../images/line@.2x_03.png) no-repeat;
+				background-size: cover;
+			}
+			
+			.mui-popup {
+				background: #354051;
+				/*top: 70%;*/
+			}
+			
+			.mui-popup-button-bold {
+				width: 100%;
+				color: rgba(255, 255, 255, 0.8) !important;
+				/* margin-right: 1.5rem !important; */
+				border-left: 1px solid rgba(255, 255, 255, 0.3);
+				/* background: #354051 !important; */
+				font-size: 0.8rem;
+			}
+			
+			.border_zero:after {
+				position: absolute;
+				top: -7px;
+				content: "";
+				right: 18px;
+				width: 0;
+				display: block;
+				height: 0;
+				border-left: 7px solid transparent;
+				border-right: 7px solid transparent;
+				border-bottom: 7px solid rgba(0, 0, 0, 0.4);
+			}
+			
+			.mui-btn {
+				display: block;
+				width: 120px;
+				/*margin: 10px auto;*/
+			}
+			
+			.mui-content .sm_search_box {
+				width: 90%;
+				/*height: 10rem;*/
+				margin: 0 auto;
+				background: #2C78B4;
+				overflow-x: hidden;
+				overflow-y: scroll;
+			}
+			
+			.mui-content .sm_search_box .sm_search_list {
+				padding: 1rem 0.5rem 0 0.5rem;
+			}
+			
+			.sm_search_box .sm_search_list li {
+				display: inline-block;
+				height: 1.5rem;
+				margin-right: 0.5rem;
+				color: #FFF;
+			}
+			
+			.sm_search_list span {
+				display: inline-block;
+				margin-left: 0.5rem;
+				color: #fff;
+			}
+			
+			.sm_search_hide {
+				width: 100%;
+				color: #fff;
+				height: 2rem;
+				line-height: 2rem;
+				text-align: center;
+				margin: 0 auto;
+				background: #2B5587;
+			}
+			
+			.mui-title img {
+				height: 1.5rem;
+				line-height: 1.5rem;
+			}
+		</style>
+	</head>
+	<script type="text/javascript" src="../js/jquery-1.8.3.min.js"></script>
+
+	<body>
+
+		<div class="mui-popup-backdrop mui-active" style="display: none;"></div>
+		<div class="magin_mid">
+			<header class="mui-bar mui-bar-nav sm_head_nav">
+				<img class="sm_s_photo kq_tx" src="../images/wode/tx.png" alt="" />
+
+				<h1 class="mui-title sm_title">记录<!--<img src="../images/M@.2x_03.png" alt="" />--></h1>
+				<p class="datep"><input style="display:none;" class="datainp" id="datebut" type="text" placeholder="请选择" readonly>
+					<img src="../images/jilu/calender@2x_03.png" alt="" style="float:right;" class="calendar_button" onClick="jeDate({dateCell:'#datebut',isTime:true,format:'YYYY-MM-DD hh:mm:ss'})" />
+					<!--	<input style="float: right;" class="calendar_button" onClick="jeDate({dateCell:'#datebut',isTime:true,format:'YYYY-MM-DD hh:mm:ss'})" value="">-->
+				</p>
+			</header>
+			<div class="mui-content">
+				<div class="mui-input-row mui-search">
+					<!--<img class="sm_search_img" src="../images/jilu/jilu@2x.png" alt="" />-->
+					<input type="search" class="mui-input-clear sm_search" placeholder="输入货号进行查询">
+					<!--<span class="sm_clear_button">取消</span>-->
+				</div>
+				<div class="sm_search_box" style="display: none;">
+					<ul class="sm_search_list">
+						<li>KJLK897053348</li><span>2017-06-03</span><span>16:02</span>
+						<li>KJLK897053348</li><span>2017-06-03</span><span>16:02</span>
+						<li>KJLK897053348</li><span>2017-06-03</span><span>16:02</span>
+					</ul>
+					<p class="sm_search_hide">取消</p>
+				</div>
+				<ul id="OA_task_2" class="mui-table-view">
+					<li id="department_box" class="mui-table-view-cell slide ">
+						<div class=" sm_title_left">本月</div>
+						<div class="sm_benyue_jilu  sm_title_right  btn-slide " href="###">508条信息
+							<img id="rotote" class="del" src="../images/jilu/jiantou@2x.png" alt="" />
+						</div>
+					</li>
+					<div style="display: block;" id="panel">
+
+						<li class="mui-table-view-cell " data-html="details.html">
+						
+							<div class="mui-slider-handle mui-table">
+								<div class="sm_box_left">
+									
+									<div class="sm_box_left_text sm_time">2017/3/15</div>
+								</div>
+								<div class="sm_benyue mui-navigate-right"><span>152条信息</span></div>
+							</div>
+						</li>
+						
+						<li class="mui-table-view-cell " data-html="details.html">
+						
+							<div class="mui-slider-handle mui-table">
+								<div class="sm_box_left">
+									
+									<div class="sm_box_left_text sm_time">2017/3/15</div>
+								</div>
+								<div class="sm_benyue mui-navigate-right"><span>152条信息</span></div>
+							</div>
+						</li>
+						<li class="mui-table-view-cell " data-html="details.html">
+						
+							<div class="mui-slider-handle mui-table">
+								<div class="sm_box_left">
+									
+									<div class="sm_box_left_text sm_time">2017/3/15</div>
+								</div>
+								<div class="sm_benyue mui-navigate-right"><span>152条信息</span></div>
+							</div>
+						</li>
+						
+					</div>
+					<li class="mui-table-view-cell sm_benyue_color ">
+						<div class=" sm_title_left">2017年1月</div>
+						<div class="sm_benyue_jilu  sm_title_right  btn-slide_hidden" href="###">508条信息
+							<img id="rotote1" class="del" src="../images/jilu/jiantou@2x.png" alt="" />
+						</div>
+					</li>
+					<div class="sm_toggle_hidden" style="display: none;">
+
+					<li class="mui-table-view-cell " data-html="details.html">
+						
+							<div class="mui-slider-handle mui-table">
+								<div class="sm_box_left">
+									
+									<div class="sm_box_left_text sm_time">2017/3/15</div>
+								</div>
+								<div class="sm_benyue mui-navigate-right"><span>152条信息</span></div>
+							</div>
+						</li>
+						<li class="mui-table-view-cell " data-html="details.html">
+						
+							<div class="mui-slider-handle mui-table">
+								<div class="sm_box_left">
+									
+									<div class="sm_box_left_text sm_time">2017/3/15</div>
+								</div>
+								<div class="sm_benyue mui-navigate-right"><span>152条信息</span></div>
+							</div>
+						</li>
+						<li class="mui-table-view-cell " data-html="details.html">
+						
+							<div class="mui-slider-handle mui-table">
+								<div class="sm_box_left">
+									
+									<div class="sm_box_left_text sm_time">2017/3/15</div>
+								</div>
+								<div class="sm_benyue mui-navigate-right"><span>152条信息</span></div>
+							</div>
+						</li>
+						<li class="mui-table-view-cell " data-html="details.html">
+						
+							<div class="mui-slider-handle mui-table">
+								<div class="sm_box_left">
+									
+									<div class="sm_box_left_text sm_time">2017/3/15</div>
+								</div>
+								<div class="sm_benyue mui-navigate-right"><span>152条信息</span></div>
+							</div>
+						</li>
+						
+
+					</div>
+
+				</ul>
+			</div>
+		</div>
+
+	</body>
+	<script type="text/javascript" src="../js/global.js"></script>
+	<script src="../js/mui.min.js"></script>
+
+	<script type="text/javascript" src="../js/public.js"></script>
+	<!--<script src="../js/BeatPicker.min.js"></script>
+		<script src="../js/prism.js"></script>-->
+	<script type="text/javascript" src="../js/jedate.js"></script>
+	<script type="text/javascript" src="wode/js/setting.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			//	本月的列表
+			$("#department_box").click(function() {
+				//				$("#panel").slideToggle("slow");
+				if($("#panel").css("display") == "block") {
+					$("#panel").css("display", "none");
+					$("#rotote").css('-webkit-transform', 'rotate(' + 90 + 'deg)');
+					return false;
+				} else {
+					$("#panel").css("display", "block");
+					$("#rotote").css('-webkit-transform', 'rotate(' + -360 + 'deg)');
+				}
+			});
+			//			带有时间的本月的列表
+			$(".sm_benyue_color").click(function() {
+				//				$("#panel").slideToggle("slow");
+				if($(".sm_toggle_hidden").css("display") == "none") {
+					$(".sm_toggle_hidden").css("display", "block");
+					$("#rotote1").css('-webkit-transform', 'rotate(' + -360 + 'deg)');
+					return false;
+				} else {
+					$(".sm_toggle_hidden").css("display", "none");
+					$("#rotote1").css('-webkit-transform', 'rotate(' + 90 + 'deg)');
+				}
+			});
+			//点击信息查看详情窗口
+			mui.plusReady(function() {
+				$("#OA_task_2").on("click", ".mui-table-view-cell", function() {
+					var htmlName = $(this).attr('data-html');
+					openWebview(htmlName)
+				})
+			})
+
+			//点击搜索弹出层
+			//	$(".mui-search>.mui-placeholder>.mui-icon-search").click(function() {
+			//						alert("ok")	//$(".sm_search_box").slideToggle("slow");
+			//				if($(".sm_search_box").css("display") == "none") {
+			//					$(".sm_search_box").css("display", "block");
+			//					
+			//					return false;
+			//				} else {
+			//					$(".sm_search_box").css("display", "none");
+			//					
+			//				}
+			//			});
+			$(".mui-search").click(function() {
+				var search_value = $('.mui-search').val;
+				//$(".sm_search_box").slideToggle("slow");
+				if($(".sm_search_box").css("display") == "none") {
+					$(".sm_search_box").css("display", "block");
+
+					return false;
+				} else {
+					$(".sm_search_box").css("display", "none");
+
+				}
+			});
+			$(".sm_search_hide").click(function() {
+				$(".sm_search_box").css("display", "none");
+			})
+
+			//		
+			//					$(".calendar_button").click(function() {
+			//
+			//				if($("#jedatebox").css("display") == "block"){
+			//					 $(".mui-popup-backdrop").css("display", "block");
+			//					//$(".mui-popup-backdrop").addClass("mui-active");
+			//							return false;
+			//				}else{
+			//					 $(".mui-popup-backdrop").css("display", "none").removeClass("mui-active");;
+			//					
+			//				
+			//				}
+			//			});
+			//			
+
+		})
+	</script>
+		
+	
+	<script>
+		mui.init({
+	//监听Android手机的back、menu按键
+	keyEventBind: {
+		backbutton: false,  //Boolean(默认true)关闭back按键监听
+		menubutton: false   //Boolean(默认true)关闭menu按键监听
+	}
+})
+		
+		
+		mui.ready(function() {
+
+			//		删除功能
+
+			(function($) {
+
+				var btnArray = ['确认', '取消'];
+				//第二个demo，向左拖拽后显示操作图标，释放后自动触发的业务逻辑
+				$('#OA_task_2').on('slideleft', '.mui-table-view-cell', function(event) {
+					var elem = this;
+					mui.confirm('提示：数据删除后无法恢复', '确认删除该条记录？', btnArray, function(e) {
+						if(e.index == 0) {
+							elem.parentNode.removeChild(elem);
+						} else {
+							setTimeout(function() {
+								$.swipeoutClose(elem);
+							}, 0);
+						}
+					}, "div");
+				});
+
+			})(mui);
+		});
+	</script>
+
+	<script type="text/javascript">
+		//jeDate.skin('gray');
+		jeDate({
+			dateCell: "#indate", //isinitVal:true,
+			format: "YYYY-MM",
+			isTime: false, //isClear:false,
+			minDate: "2015-10-19 00:00:00",
+			maxDate: "2016-11-8 00:00:00"
+		})
+		jeDate({
+			dateCell: "#dateinfo",
+			format: "YYYY年MM月DD日 hh:mm:ss",
+			isinitVal: true,
+			isTime: true, //isClear:false,
+			minDate: "2014-09-19 00:00:00",
+			okfun: function(val) {
+				//alert(val)
+			}
+		})
+		
+		
+	</script>
+
+</html>
